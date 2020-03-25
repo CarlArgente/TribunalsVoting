@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TribunalsVoting"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Height="600" Width="1024"
         AllowsTransparency="True" Background="Transparent"
@@ -17,17 +18,48 @@
                 </LinearGradientBrush>
 
             </Border.Background>
-            <Rectangle Width="200" Margin="0,0,824,0" StrokeThickness="0" RadiusY="25" RadiusX="25" >
-                <Rectangle.Fill>
+        <Border Margin="0,0,837,0" CornerRadius="25">
+                <Border.Background>
                     <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
                         <GradientStop Color="#FF3827B4"/>
                         <GradientStop Color="White" Offset="0.884"/>
                         <GradientStop Color="#FF584BB4" Offset="0.883"/>
                         <GradientStop Color="#FF4839B4" Offset="0.45"/>
-
                     </LinearGradientBrush>
-                </Rectangle.Fill>
-            </Rectangle>
+                </Border.Background>
+                <ListView Margin="0,67,22,51" Background="{x:Null}" BorderThickness="0" FontFamily="Segoe UI Light" Foreground="White">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Sample" Margin="10" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                </ListView>
+           </Border>
         </Border>
 
     </Grid>
