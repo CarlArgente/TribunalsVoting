@@ -18,7 +18,7 @@
                 </LinearGradientBrush>
 
             </Border.Background>
-        <Border Margin="0,0,837,0" CornerRadius="25">
+            <Border Margin="0,0,837,0" CornerRadius="25">
                 <Border.Background>
                     <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
                         <GradientStop Color="#FF3827B4"/>
@@ -27,39 +27,45 @@
                         <GradientStop Color="#FF4839B4" Offset="0.45"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <ListView Margin="0,67,22,51" Background="{x:Null}" BorderThickness="0" FontFamily="Segoe UI Light" Foreground="White">
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                <ListView Margin="0,87,22,51" Background="{x:Null}" BorderThickness="0" FontFamily="Segoe UI Light" Foreground="White">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                            <materialDesign:PackIcon Kind="AccountAdd" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Add Candidate" Margin="5" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Sample" Margin="10" Height="19"/>
+                            <materialDesign:PackIcon Kind="AccountMultipleAdd" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Add Students" Margin="5" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="hahaha" Margin="10" Height="19"/>
+                            <materialDesign:PackIcon Kind="Restart" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Reset Candidate" Margin="5" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                            <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="Admin Accounts" Margin="5" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                            <materialDesign:PackIcon Kind="Rank" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="View Ranking" Margin="5" Height="19"/>
+                        </StackPanel>
+                    </ListViewItem>
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
+                        <StackPanel Orientation="Horizontal" Margin="10 0">
+                            <materialDesign:PackIcon Kind="History" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
+                            <TextBlock Text="History" Margin="5" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
-           </Border>
+            </Border>
         </Border>
 
     </Grid>
