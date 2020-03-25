@@ -43,7 +43,7 @@
                     <ListViewItem Height="36" Padding="0" Background="{x:Null}">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="Recycle" Width="20" Height="20" Foreground="Gray" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Recycle" Margin="10" Height="19"/>
+                            <TextBlock Text="hahaha" Margin="10" Height="19"/>
                         </StackPanel>
                     </ListViewItem>
                     <ListViewItem Height="36" Padding="0" Background="{x:Null}">
