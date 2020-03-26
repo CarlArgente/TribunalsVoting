@@ -10,26 +10,19 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
+using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TribunalsVoting
 {
     /// <summary>
-    /// Interaction logic for AdminModule.xaml
+    /// Interaction logic for AddCandidate.xaml
     /// </summary>
-    public partial class AdminModule : Window
+    public partial class DashBoard : UserControl
     {
-        public AdminModule()
+        public DashBoard()
         {
             InitializeComponent();
-            GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new DashBoard());
-        }
-
-        private void ListViewItem_Selected(object sender, RoutedEventArgs e)
-        {
-            GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new DashBoard());
         }
     }
 }

@@ -27,8 +27,9 @@
                         <GradientStop Color="#FF4839B4" Offset="0.45"/>
                     </LinearGradientBrush>
                 </Border.Background>
-                <ListView Margin="0,87,22,51" Background="{x:Null}" BorderThickness="0" FontFamily="Segoe UI Light" Foreground="White">
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
+
+                <ListView Margin="0,132,22,51" Background="{x:Null}" BorderThickness="0" FontFamily="Segoe UI Light" Foreground="White">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
                             <materialDesign:PackIcon Kind="AccountAdd" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
                             <TextBlock Text="Add Candidate" Margin="5" Height="19"/>
@@ -66,7 +67,13 @@
                     </ListViewItem>
                 </ListView>
             </Border>
+            
         </Border>
-
+        <Grid Margin="194,0,0,0">
+            <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Grid>
+        <Grid Margin="27,20,882,479">
+            <Image Source="Assets/tribunals.png" Stretch="Fill"/>
+        </Grid>
     </Grid>
 </Window>
