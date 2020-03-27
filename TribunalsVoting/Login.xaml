@@ -119,14 +119,17 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Border CornerRadius="25">
+        <Border>
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="White"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <Label x:Name="label" Content="X" Foreground="#FF3827B4" FontFamily="Segoe UI Semibold" FontSize="16" UseLayoutRounding="True" Margin="374,0,7,519" RenderTransformOrigin="8.053,0.581"/>
-
+            <Grid Margin="0,0,0,514">
+                <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,0,0" BorderBrush="{x:Null}" >
+                    <materialDesign:PackIcon Kind="Power" Height="26" Width="26" Foreground="#FF3827B4"/>
+                </Button>
+            </Grid>
         </Border>
 
         <Image Source="Assets/tribunals.png" RenderTransformOrigin="0.909,0.844" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" Height="122" Width="122" Margin="139,85,139,343"/>

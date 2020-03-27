@@ -10,11 +10,11 @@
     <Grid>
         <materialDesign:TransitioningContent x:Name="TransitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0:0.5}">
             <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                <StackPanel Margin="10" VerticalAlignment="Center">
-                    <TextBlock Text="CSG ELECTION" FontFamily="Segoe UI Semibold" FontSize="48" Foreground="#FF584BB4"/>
+                <Image Margin="10" Width="200" Height="200" Source="Assets/tribunals.png" Stretch="Fill"/>
+                <StackPanel Margin="50,10,10,10" VerticalAlignment="Center">
+                    <TextBlock Text="CSG ELECTION" FontFamily="Segoe UI Semibold" FontSize="48" Foreground="#FF3827B4"/>
                     <TextBlock Text="April 03, 2020" FontFamily="Segoe UI Semibold" FontSize="30" Foreground="#FFACACAC"/>
                 </StackPanel>
-                <Image Margin="10" Width="200" Height="200" Source="Assets/tribunals.png" Stretch="Fill"/>
             </StackPanel>
         </materialDesign:TransitioningContent>
     </Grid>

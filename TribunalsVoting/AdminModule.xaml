@@ -10,70 +10,73 @@
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid>
-        <Border CornerRadius="25">
-            <Border.Background>
-                <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
-                    <GradientStop Color="White" Offset="1"/>
-                    <GradientStop Color="#FF6755DE" Offset="1"/>
-                </LinearGradientBrush>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="819*"/>
+            <ColumnDefinition Width="205*"/>
+        </Grid.ColumnDefinitions>
+        <Border Background="#FFEAE9F1" Grid.ColumnSpan="2">
+            <Border Margin="0,0,970,0" Background="White">
 
-            </Border.Background>
-            <Border Margin="0,0,837,0" CornerRadius="25">
-                <Border.Background>
-                    <LinearGradientBrush EndPoint="1,0" MappingMode="RelativeToBoundingBox" StartPoint="0,0">
-                        <GradientStop Color="#FF3827B4"/>
-                        <GradientStop Color="White" Offset="0.884"/>
-                        <GradientStop Color="#FF584BB4" Offset="0.883"/>
-                        <GradientStop Color="#FF4839B4" Offset="0.45"/>
-                    </LinearGradientBrush>
-                </Border.Background>
-
-                <ListView Margin="0,132,22,51" Background="{x:Null}" BorderThickness="0" FontFamily="Segoe UI Light" Foreground="White">
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected">
+                <ListView Margin="0,61,0,51" Background="{x:Null}" BorderThickness="0" FontFamily="Segoe UI Light" Foreground="White" BorderBrush="{x:Null}">
+                    <ListViewItem x:Name="Home" Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="AccountAdd" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Add Candidate" Margin="5" Height="19"/>
+                            <materialDesign:PackIcon Kind="Home" Width="20" Height="20" Foreground="#FF584BB4" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected_1">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="AccountMultipleAdd" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Add Students" Margin="5" Height="19"/>
+                            <materialDesign:PackIcon Kind="PeopleGroup" Width="20" Height="20" Foreground="#FF584BB4" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected_2">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Restart" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Reset Candidate" Margin="5" Height="19"/>
+                            <materialDesign:PackIcon Kind="People" Width="20" Height="20" Foreground="#FF584BB4" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected_3">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Account" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="Admin Accounts" Margin="5" Height="19"/>
+                            <materialDesign:PackIcon Kind="PersonLock" Width="20" Height="20" Foreground="#FF584BB4" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected_4">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="Rank" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="View Ranking" Margin="5" Height="19"/>
+                            <materialDesign:PackIcon Kind="Rank" Width="20" Height="20" Foreground="#FF584BB4" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
-                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0">
+                    <ListViewItem Height="36" Padding="0" Background="{x:Null}" BorderThickness="0" Selected="ListViewItem_Selected_5">
                         <StackPanel Orientation="Horizontal" Margin="10 0">
-                            <materialDesign:PackIcon Kind="History" Width="20" Height="20" Foreground="White" Margin="5" VerticalAlignment="Center"/>
-                            <TextBlock Text="History" Margin="5" Height="19"/>
+                            <materialDesign:PackIcon Kind="History" Width="20" Height="20" Foreground="#FF584BB4" Margin="5" VerticalAlignment="Center"/>
                         </StackPanel>
                     </ListViewItem>
                 </ListView>
             </Border>
-            
+
         </Border>
-        <Grid Margin="194,0,0,0">
+        <Grid Margin="54,61,0,502" Grid.ColumnSpan="2" Background="#FFF7F0F0" x:Name="Navigation">
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition Height="0*"/>
+            </Grid.RowDefinitions>
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBlock x:Name="dashText1" Text="List of Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashDash1" Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashText2" Text="Add Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashDash2" Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashText3" Text="Reset Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24"/>
+
+            </StackPanel>
+
+        </Grid>
+        <Grid Margin="54,61,0,0" Grid.ColumnSpan="2">
             <Grid x:Name="GridPrincipal" HorizontalAlignment="Center" VerticalAlignment="Center"/>
         </Grid>
-        <Grid Margin="27,20,882,479">
-            <Image Source="Assets/tribunals.png" Stretch="Fill"/>
+        <Grid Margin="0,0,0,539" Grid.ColumnSpan="2">
+            <Border Background="#FF3827B4" Margin="-54,0,0,0" HorizontalAlignment="Right" Width="1024"/>
+            <TextBlock x:Name="txtTitle" Text="DashBoard" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Segoe UI Light" FontSize="24" Foreground="White" FontWeight="Bold"/>
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,5,0" BorderBrush="{x:Null}" Click="Button_Click">
+                <materialDesign:PackIcon Kind="Power" Height="26" Width="26" Foreground="White"/>
+            </Button>
         </Grid>
+
     </Grid>
 </Window>

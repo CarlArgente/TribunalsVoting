@@ -4,6 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:TribunalsVoting"
+        xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
         mc:Ignorable="d"
         Height="350" Width="600"
         AllowsTransparency="True" Background="Transparent"
@@ -71,15 +72,18 @@
         </Style>
     </Window.Resources>
     <Grid>
-        <Border CornerRadius="25">
+        <Border>
             <Border.Background>
                 <LinearGradientBrush EndPoint="0.5,1" MappingMode="RelativeToBoundingBox" StartPoint="0.5,0">
                     <GradientStop Color="White" Offset="1"/>
                     <GradientStop Color="#FF6755DE" Offset="1"/>
                 </LinearGradientBrush>
             </Border.Background>
-            <Label x:Name="label" Content="X" Foreground="#FF3827B4" FontFamily="Segoe UI Semibold" FontSize="16" UseLayoutRounding="True" Margin="575,2,6,317" RenderTransformOrigin="8.053,0.581"/>
-
+            <Grid Margin="0,0,0,319">
+                <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,0,0" BorderBrush="{x:Null}" >
+                    <materialDesign:PackIcon Kind="Power" Height="26" Width="26" Foreground="#FF3827B4"/>
+                </Button>
+            </Grid>
         </Border>
         <Label x:Name="label1" Content="Choice Access" HorizontalAlignment="Left" Margin="21,56,0,0" VerticalAlignment="Top" Width="146" Foreground="#FF3827B4" FontSize="22"/>
         <Button Background="#FF3827B4" Content="Admin Module" FontSize="16"  Margin="74,128,322,62" Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" Click="Button_Click" />
