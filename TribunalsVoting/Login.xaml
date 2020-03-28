@@ -134,8 +134,8 @@
 
         <Image Source="Assets/tribunals.png" RenderTransformOrigin="0.909,0.844" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" Height="122" Width="122" Margin="139,85,139,343"/>
         <Label x:Name="label1" Content="Sign in" HorizontalAlignment="Left" Margin="59,249,0,0" VerticalAlignment="Top" Width="129" Foreground="#FF3827B4" FontSize="22"/>
-        <TextBox Text="Username" Height="38" Margin="90,299,90,213" TextWrapping="Wrap" VerticalAlignment="Center" Width="220" FontSize="14" VerticalContentAlignment="Center" Style="{DynamicResource RoundTextBox}"/>
-        <TextBox Text="Password" Height="38" Margin="90,348,90,164" TextWrapping="Wrap" VerticalAlignment="Center" Width="220" FontSize="14" VerticalContentAlignment="Center" Style="{DynamicResource RoundTextBox}"/>
+        <TextBox x:Name="txtUsername" Text="Username" Height="38" Margin="90,299,90,213" TextWrapping="Wrap" VerticalAlignment="Center" Width="220" FontSize="14" VerticalContentAlignment="Center" Style="{DynamicResource RoundTextBox}" GotFocus="txtUsername_GotFocus" LostFocus="txtUsername_LostFocus"/>
+        <TextBox x:Name="txtPassword" Text="Password" Height="38" Margin="90,348,90,164" TextWrapping="Wrap" VerticalAlignment="Center" Width="220" FontSize="14" VerticalContentAlignment="Center" Style="{DynamicResource RoundTextBox}" GotFocus="txtPassword_GotFocus"/>
         <Button Width="140" Height="42" Background="#FF3827B4" Content="Sign in" FontSize="16"  Margin="130,437,130,71" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
 
     </Grid>
