@@ -123,11 +123,14 @@ namespace TribunalsVoting
         {
             txtTitle.Text = "History";
             Navigation.Visibility = Visibility.Visible;
-            dashText1.Text = "Logs";
-            dashText2.Text = "";
+            dashText1.Text = "Admin Logs";
+            dashText2.Text = "Student Logs";
             dashText3.Text = "";
-            dashDash1.Text = "";
+            dashDash1.Text = "|";
             dashDash2.Text = "";
+
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new Logs());
         }
     }
 }

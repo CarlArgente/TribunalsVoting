@@ -131,9 +131,8 @@
                 </Button>
             </Grid>
         </Border>
-
         <Image Source="Assets/tribunals.png" RenderTransformOrigin="0.909,0.844" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" Height="122" Width="122" Margin="139,76,139,352"/>
-        <Label x:Name="label1" Content="Sign in" HorizontalAlignment="Left" Margin="59,227,0,0" VerticalAlignment="Top" Width="129" Foreground="#FF3827B4" FontSize="22"/>
+        <Label x:Name="label1" Content="Sign in" HorizontalAlignment="Left" Margin="59,241,0,0" VerticalAlignment="Top" Width="129" Foreground="#FF3827B4" FontSize="22"/>
         <TextBox materialDesign:HintAssist.Hint="Username" Margin="90,299,90,213" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="14"/>
         <PasswordBox materialDesign:HintAssist.Hint="Password" Margin="90,348,90,164" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="14"/>
         <Button Width="140" Height="42" Background="#FF3827B4" Content="Sign in" FontSize="16"  Margin="130,435,130,73" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
