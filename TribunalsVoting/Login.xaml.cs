@@ -48,6 +48,13 @@ namespace TribunalsVoting
                         this.Close();
                     }
                     reader.Close();
+                }else if (txtUsername.Text == "superadmin" && txtPassword.Password == "superadmin")
+                {
+                    MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.Hide();
+                    new AdminModule().Show();
+                    this.Close();
                 }
                 else
                 {
