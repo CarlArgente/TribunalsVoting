@@ -21,8 +21,7 @@ namespace TribunalsVoting
     {
         public Login()
         {
-            InitializeComponent();
-            txtUsername.Foreground = Brushes.LightGray;
+            InitializeComponent();        
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
@@ -41,20 +40,12 @@ namespace TribunalsVoting
 
         private void txtUsername_GotFocus(object sender, RoutedEventArgs e)
         {
-            if(txtUsername.Text == "Username" && txtUsername.Foreground == Brushes.LightGray)
-            {
-                txtUsername.Text = "";
-                txtUsername.Foreground = Brushes.Black;
-            }
+          
         }
 
         private void txtUsername_LostFocus(object sender, RoutedEventArgs e)
         {
-            if (txtUsername.Text == "")
-            {
-                txtUsername.Text = "Username";
-                txtUsername.Foreground = Brushes.LightGray;
-            }
+          
         }
 
         private void txtPassword_GotFocus(object sender, RoutedEventArgs e)
