@@ -27,7 +27,7 @@ namespace TribunalsVoting
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             this.Hide();
-            new ChoiceAccess().Show();
+            new AdminModule().Show();
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

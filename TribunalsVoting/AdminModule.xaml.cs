@@ -84,6 +84,9 @@ namespace TribunalsVoting
             dashText3.Text = "Reset Candidate";
             dashDash1.Text = "|";
             dashDash2.Text = "|";
+
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new Candidates());
         }
         public void ClickedStudent()
         {
