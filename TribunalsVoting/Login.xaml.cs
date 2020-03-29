@@ -11,6 +11,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace TribunalsVoting
 {
@@ -19,6 +20,8 @@ namespace TribunalsVoting
     /// </summary>
     public partial class Login : Window
     {
+        MySqlConnection conn;
+
         public Login()
         {
             InitializeComponent();        
@@ -26,8 +29,41 @@ namespace TribunalsVoting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            new AdminModule().Show();
+            string connetionString = "server=localhost;database=db_tribunals;uid=root;pwd=;";
+            conn = new MySqlConnection(connetionString);
+
+            conn.Open();
+            using (conn)
+            {
+                MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + txtPassword.Password + "'", conn);
+                MySqlDataReader reader = command.ExecuteReader();
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                    {
+                        MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                        this.Hide();
+                        new AdminModule().Show();
+                        this.Close();
+                    }
+                    reader.Close();
+                }else if (txtUsername.Text == "superadmin" && txtPassword.Password == "superadmin")
+                {
+                    MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                    this.Hide();
+                    new AdminModule().Show();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Wrong Username or Password", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                    reader.Close();
+                }
+            }
+            conn.Close();
+            
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

@@ -29,6 +29,7 @@ namespace TribunalsVoting
         {
             this.Hide();
             new Login().Show();
+            this.Close();
         }
     }
 }
