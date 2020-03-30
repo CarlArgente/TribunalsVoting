@@ -10,9 +10,12 @@
     <materialDesign:TransitioningContent x:Name="TransitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0:0.5}">
         <Grid Background="White">
             <StackPanel Orientation="Vertical" Margin="30">
-                <TextBox materialDesign:HintAssist.Hint="Search History" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" HorizontalAlignment="Left" Margin="0,10,10,10"/>
+                <StackPanel>
+                    <TextBlock Text="Admin Logs" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Foreground="#FF3827B4" Width="197"/>
+                    <TextBox materialDesign:HintAssist.Hint="Search History" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" HorizontalAlignment="Left" Margin="10,10,10,10"/>
+                </StackPanel>
                 <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
-                    FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" 
+                    FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" IsReadOnly="True"
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20"
                     CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
                     <DataGrid.Columns>
