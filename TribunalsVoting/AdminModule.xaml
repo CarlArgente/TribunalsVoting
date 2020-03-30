@@ -58,11 +58,13 @@
                 <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
-                <TextBlock x:Name="dashText1" Text="List of Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashText1" Text="List of Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24" FontFamily="Segoe UI Semilight" FontWeight="Bold"  MouseLeftButtonDown="nav1_mouseDown"/>
                 <TextBlock x:Name="dashDash1" Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="10,8,10,5" Height="24"/>
-                <TextBlock x:Name="dashText2" Text="Add Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashText2" Text="Add Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="nav2_mouseDown"/>
                 <TextBlock x:Name="dashDash2" Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="10,8,10,5" Height="24"/>
-                <TextBlock x:Name="dashText3" Text="Reset Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashText3" Text="Update Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="nav3_mouseDown"/>
+                <TextBlock x:Name="dashDash3" Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="10,8,10,5" Height="24"/>
+                <TextBlock x:Name="dashText4" Text="Delete Candidate" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,8,10,5" Height="24" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="nav4_mouseDown"/>
 
             </StackPanel>
 

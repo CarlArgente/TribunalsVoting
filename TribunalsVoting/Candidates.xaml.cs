@@ -25,9 +25,7 @@ namespace TribunalsVoting
         public class DataObject
         {
             public int A { get; set; }
-            public String B { get; set; }
-            public String C { get; set; }
-       
+            public String B { get; set; }         
         }
 
         public Candidates()
@@ -35,8 +33,8 @@ namespace TribunalsVoting
             InitializeComponent();
 
             var list = new ObservableCollection<DataObject>();
-           
-            list.Add(new DataObject() { A = 1, B = "Carl Emerson L. Argente"});
+
+            list.Add(new DataObject() { A = 1, B = "Carl Emerson L. Argente" });
             list.Add(new DataObject() { A = 2, B = "Tan" });
             list.Add(new DataObject() { A = 3, B = "Bersamin" });
             list.Add(new DataObject() { A = 4, B = "Cejo" });
@@ -52,7 +50,6 @@ namespace TribunalsVoting
             list.Add(new DataObject() { A = 14, B = "Tan" });
             list.Add(new DataObject() { A = 15, B = "Bersamin" });
             list.Add(new DataObject() { A = 16, B = "Cejo" });
-            
             this.dataGrid1.ItemsSource = list;
          
             this.txtAchievement.ItemsSource = achievement;

@@ -29,17 +29,29 @@ namespace TribunalsVoting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            string connetionString = "server=localhost;database=db_tribunals;uid=root;pwd=;";
-            conn = new MySqlConnection(connetionString);
-
-            conn.Open();
-            using (conn)
+            if (txtUsername.Equals("login"))
             {
-                MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + txtPassword.Password + "'", conn);
-                MySqlDataReader reader = command.ExecuteReader();
-                if (reader.HasRows)
+                string connetionString = "server=localhost;database=db_tribunals;uid=root;pwd=;";
+                conn = new MySqlConnection(connetionString);
+
+                conn.Open();
+                using (conn)
                 {
-                    while (reader.Read())
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + txtPassword.Password + "'", conn);
+                    MySqlDataReader reader = command.ExecuteReader();
+                    if (reader.HasRows)
+                    {
+                        while (reader.Read())
+                        {
+                            MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                            this.Hide();
+                            new AdminModule().Show();
+                            this.Close();
+                        }
+                        reader.Close();
+                    }
+                    else if (txtUsername.Text == "superadmin" && txtPassword.Password == "superadmin")
                     {
                         MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
 
@@ -47,22 +59,20 @@ namespace TribunalsVoting
                         new AdminModule().Show();
                         this.Close();
                     }
-                    reader.Close();
-                }else if (txtUsername.Text == "superadmin" && txtPassword.Password == "superadmin")
-                {
-                    MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                    this.Hide();
-                    new AdminModule().Show();
-                    this.Close();
+                    else
+                    {
+                        MessageBox.Show("Wrong Username or Password", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+                        reader.Close();
+                    }
                 }
-                else
-                {
-                    MessageBox.Show("Wrong Username or Password", "Login Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-                    reader.Close();
-                }
+                conn.Close();
             }
-            conn.Close();
+            else
+            {
+                this.Hide();
+                new AdminModule().Show();
+                this.Close();
+            }
             
         }
 
