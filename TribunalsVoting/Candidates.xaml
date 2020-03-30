@@ -57,7 +57,7 @@
         <materialDesign:TransitioningContent x:Name="TransitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0:0.5}">
             <StackPanel Background="White" Height="408">
                 <StackPanel HorizontalAlignment="Left" Margin="15" Orientation="Horizontal">
-                    <TextBlock Text="Candidate Information" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,400,0" Foreground="#FF3827B4"/>
+                    <TextBlock Text="Candidate List" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,470,0" Foreground="#FF3827B4"/>
                     <TextBox materialDesign:HintAssist.Hint="Search Candidate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" >

@@ -7,21 +7,22 @@
              xmlns:materialDesign ="http://materialdesigninxaml.net/winfx/xaml/themes"
              mc:Ignorable="d" 
              Height="auto" Width="auto">
-    
-    <Grid Background="White">
-        <StackPanel Orientation="Vertical" Margin="30">
-            <TextBox materialDesign:HintAssist.Hint="Search History" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" HorizontalAlignment="Left" Margin="0,10,10,10"/>
-            <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
+    <materialDesign:TransitioningContent x:Name="TransitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0:0.5}">
+        <Grid Background="White">
+            <StackPanel Orientation="Vertical" Margin="30">
+                <TextBox materialDesign:HintAssist.Hint="Search History" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" HorizontalAlignment="Left" Margin="0,10,10,10"/>
+                <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
                     FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" 
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20"
                     CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
-                <DataGrid.Columns>
-                    <DataGridTextColumn Header="Logs ID" Binding="{Binding A}" Width="70"/>
-                    <DataGridTextColumn Header="Admin ID" Binding="{Binding B}" Width="150"/>
-                    <DataGridTextColumn Header="Activities" Binding="{Binding C}" Width="350"/>
-                    <DataGridTextColumn Header="Date and Time" Binding="{Binding D}" Width="150"/>
-                </DataGrid.Columns>
-            </DataGrid>
-        </StackPanel>
-    </Grid>
+                    <DataGrid.Columns>
+                        <DataGridTextColumn Header="Logs ID" Binding="{Binding A}" Width="70"/>
+                        <DataGridTextColumn Header="Admin ID" Binding="{Binding B}" Width="150"/>
+                        <DataGridTextColumn Header="Activities" Binding="{Binding C}" Width="350"/>
+                        <DataGridTextColumn Header="Date and Time" Binding="{Binding D}" Width="150"/>
+                    </DataGrid.Columns>
+                </DataGrid>
+            </StackPanel>
+        </Grid>
+    </materialDesign:TransitioningContent>
 </UserControl>

@@ -74,10 +74,12 @@
         </Grid>
         <Grid Margin="0,0,0,539" Grid.ColumnSpan="2">
             <Border Background="#FF3827B4" Margin="-54,0,0,0" HorizontalAlignment="Right" Width="1024"/>
-            <TextBlock x:Name="txtTitle" Text="DashBoard" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Segoe UI Light" FontSize="24" Foreground="White" FontWeight="Bold"/>
-            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,5,0" BorderBrush="{x:Null}" Click="Button_Click">
-                <materialDesign:PackIcon Kind="Power" Height="26" Width="26" Foreground="White"/>
-            </Button>
+            <StackPanel Orientation="Horizontal">
+                <TextBlock x:Name="txtTitle" Text="DashBoard" VerticalAlignment="Center" Margin="10,0,0,0" FontFamily="Segoe UI Light" FontSize="24" Foreground="White" FontWeight="Bold"/>
+                <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="875,0,0,0" BorderBrush="{x:Null}" Click="Button_Click">
+                    <materialDesign:PackIcon Kind="Power" Height="26" Width="26" Foreground="White"/>
+                </Button>
+            </StackPanel>
         </Grid>
 
     </Grid>
