@@ -225,11 +225,13 @@ namespace TribunalsVoting
             if (dashText3.Text.Equals("Update Admin"))
             {
                 MessageBox.Show("Update Admin");
+              
             }
 
             if (dashText3.Text.Equals("Update Candidate"))
             {
-                MessageBox.Show("Update Candidate");
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new CandidateUpdate());
             }
         }
         //For clicking NavigationBar4

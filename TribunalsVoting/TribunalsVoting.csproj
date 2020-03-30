@@ -72,6 +72,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CandidateUpdate.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="DashBoard.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -97,6 +101,9 @@
     </Compile>
     <Compile Include="Candidates.xaml.cs">
       <DependentUpon>Candidates.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateUpdate.xaml.cs">
+      <DependentUpon>CandidateUpdate.xaml</DependentUpon>
     </Compile>
     <Compile Include="DashBoard.xaml.cs">
       <DependentUpon>DashBoard.xaml</DependentUpon>

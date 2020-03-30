@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,10 +17,17 @@ using System.Windows.Shapes;
 namespace TribunalsVoting
 {
     /// <summary>
-    /// Interaction logic for CandidateAdd.xaml
+    /// Interaction logic for CandidateUpdate.xaml
     /// </summary>
-    public partial class CandidateAdd : UserControl
+    public partial class CandidateUpdate : UserControl
     {
+        //tanggalin mo nalang kung papalitan mo na ng value galing database
+        public class DataObject
+        {
+            public int A { get; set; }
+            public String B { get; set; }
+        }
+
         //eto fixed na to
         String[] positions = new String[] {
             "President",
@@ -42,12 +50,32 @@ namespace TribunalsVoting
             "PartyList4",
         };
 
-        public CandidateAdd()
+        public CandidateUpdate()
         {
             InitializeComponent();
             AddItemInComboBox();
 
-        }     
+            //tanggalin mo nalang kung papalitan mo na ng value galing database
+            var list = new ObservableCollection<DataObject>();
+
+            list.Add(new DataObject() { A = 1, B = "Carl Emerson L. Argente" });
+            list.Add(new DataObject() { A = 2, B = "Tan" });
+            list.Add(new DataObject() { A = 3, B = "Bersamin" });
+            list.Add(new DataObject() { A = 4, B = "Cejo" });
+            list.Add(new DataObject() { A = 5, B = "Argente" });
+            list.Add(new DataObject() { A = 6, B = "Tan" });
+            list.Add(new DataObject() { A = 7, B = "Bersamin" });
+            list.Add(new DataObject() { A = 8, B = "Cejo" });
+            list.Add(new DataObject() { A = 9, B = "Argente" });
+            list.Add(new DataObject() { A = 10, B = "Tan" });
+            list.Add(new DataObject() { A = 11, B = "Bersamin" });
+            list.Add(new DataObject() { A = 12, B = "Cejo" });
+            list.Add(new DataObject() { A = 13, B = "Argente" });
+            list.Add(new DataObject() { A = 14, B = "Tan" });
+            list.Add(new DataObject() { A = 15, B = "Bersamin" });
+            list.Add(new DataObject() { A = 16, B = "Cejo" });
+            this.dataGrid1.ItemsSource = list;
+        }
         private void Click_btnAchievement(object sender, RoutedEventArgs e)
         {
             listAchievement.Items.Add(txtAchievement.Text);
@@ -68,7 +96,7 @@ namespace TribunalsVoting
                 {
                     listAchievement.Items.RemoveAt(listAchievement.Items.IndexOf(listAchievement.SelectedItem));
                 }
-            }          
+            }
 
         }
         private void listPlatform_KeyDown(object sender, KeyEventArgs e)
@@ -94,18 +122,6 @@ namespace TribunalsVoting
                 cmbPartylist.Items.Add(y);
             }
 
-        }
-
-        private void Reset_Click(object sender, RoutedEventArgs e)
-        {
-            txtCandidateName.Text = null;
-            txtCandidateNickname.Text = null;
-            cmbPartylist.SelectedItem = null;
-            cmbPosition.SelectedItem = null;
-            txtAchievement.Text = null;
-            txtPlatform.Text = null;
-            listAchievement.Items.Clear();
-            listPlatform.Items.Clear();
         }
     }
 }

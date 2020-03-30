@@ -22,6 +22,7 @@ namespace TribunalsVoting
     public partial class Candidates : UserControl
     {
         public String[] achievement = { "Carl Emerson L. Argente", "Carl Emerson L. Argente", "Carl Emerson L. Argente", "Carl Emerson L. Argente", "Carl Emerson L. Argente", "Carl Emerson L. Argente", "Carl Emerson L. Argente", "Carl Emerson L. Argente", "Carl Emerson L. Argente",  };
+        //tanggalin mo nalang kung papalitan mo na ng value galing database
         public class DataObject
         {
             public int A { get; set; }
@@ -31,7 +32,7 @@ namespace TribunalsVoting
         public Candidates()
         {
             InitializeComponent();
-
+            //tanggalin mo nalang kung papalitan mo na ng value galing database
             var list = new ObservableCollection<DataObject>();
 
             list.Add(new DataObject() { A = 1, B = "Carl Emerson L. Argente" });
