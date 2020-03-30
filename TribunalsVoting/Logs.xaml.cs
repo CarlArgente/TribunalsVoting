@@ -21,6 +21,7 @@ namespace TribunalsVoting
     /// </summary>
     public partial class Logs : UserControl
     {
+        //tanggalin mo nalang kung papalitan mo na ng value galing database
         public class DataObject
         {
             public int A { get; set; }
@@ -31,7 +32,7 @@ namespace TribunalsVoting
         public Logs()
         {
             InitializeComponent();
-
+            //tanggalin mo nalang kung papalitan mo na ng value galing database
             var list = new ObservableCollection<DataObject>();
 
             list.Add(new DataObject() { A = 1, B = 1001, C = "Login", D = "2020-06-15 09:34:21" });
@@ -51,6 +52,11 @@ namespace TribunalsVoting
 
          
             this.dataGrid1.ItemsSource = list;
+        }
+
+        private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

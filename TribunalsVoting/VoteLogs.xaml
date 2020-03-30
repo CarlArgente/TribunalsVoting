@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="TribunalsVoting.Logs"
+﻿<UserControl x:Class="TribunalsVoting.StudentLogs"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -11,7 +11,7 @@
         <Grid Background="White">
             <StackPanel Orientation="Vertical" Margin="30">
                 <StackPanel>
-                    <TextBlock Text="Admin Logs" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Foreground="#FF3827B4" Width="197"/>
+                    <TextBlock Text="Vote Logs" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Foreground="#FF3827B4" Width="197"/>
                     <TextBox materialDesign:HintAssist.Hint="Search History" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" HorizontalAlignment="Left" Margin="10,10,10,10"/>
                 </StackPanel>
                 <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
@@ -19,9 +19,9 @@
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20"
                     CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionChanged="DataGrid1_SelectionChanged">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Logs ID" Binding="{Binding A}" Width="70"/>
-                        <DataGridTextColumn Header="Admin ID" Binding="{Binding B}" Width="150"/>
-                        <DataGridTextColumn Header="Activities" Binding="{Binding C}" Width="350"/>
+                        <DataGridTextColumn Header="Vote Log ID" Binding="{Binding A}" Width="100"/>
+                        <DataGridTextColumn Header="Student ID" Binding="{Binding B}" Width="100"/>
+                        <DataGridTextColumn Header="Computer Name" Binding="{Binding C}" Width="320"/>
                         <DataGridTextColumn Header="Date and Time" Binding="{Binding D}" Width="150"/>
                     </DataGrid.Columns>
                 </DataGrid>

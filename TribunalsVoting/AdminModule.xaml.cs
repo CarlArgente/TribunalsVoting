@@ -156,7 +156,7 @@ namespace TribunalsVoting
             txtTitle.Text = "History";
             Navigation.Visibility = Visibility.Visible;
             dashText1.Text = "Admin Logs";
-            dashText2.Text = "Student Logs";
+            dashText2.Text = "Vote Logs";
             dashText3.Text = "";
             dashText4.Text = "";
             dashDash1.Text = "|";
@@ -214,9 +214,10 @@ namespace TribunalsVoting
                 MessageBox.Show("Add Admin");
             }
 
-            if (dashText2.Text.Equals("Student Logs"))
+            if (dashText2.Text.Equals("Vote Logs"))
             {
-                MessageBox.Show("Student Logs");
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new StudentLogs());
             }
         }
         //For clicking NavigationBar3
