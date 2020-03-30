@@ -68,6 +68,10 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
+    <Page Include="CandidateDelete.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Candidates.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -98,6 +102,9 @@
     </Page>
     <Compile Include="CandidateAdd.xaml.cs">
       <DependentUpon>CandidateAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CandidateDelete.xaml.cs">
+      <DependentUpon>CandidateDelete.xaml</DependentUpon>
     </Compile>
     <Compile Include="Candidates.xaml.cs">
       <DependentUpon>Candidates.xaml</DependentUpon>

@@ -67,7 +67,7 @@
                     CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="ID" Binding="{Binding A}" Width="70"/>
-                            <DataGridTextColumn Header="Lastname" Binding="{Binding B}" Width="150"/>
+                            <DataGridTextColumn Header="Full name" Binding="{Binding B}" Width="150"/>
                         </DataGrid.Columns>
                     </DataGrid>
 

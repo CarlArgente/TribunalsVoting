@@ -244,7 +244,8 @@ namespace TribunalsVoting
 
             if (dashText4.Text.Equals("Delete Candidate"))
             {
-                MessageBox.Show("Delete Candidate");
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new CandidateDelete());
             }
         }
 
