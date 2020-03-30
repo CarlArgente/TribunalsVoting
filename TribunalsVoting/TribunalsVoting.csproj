@@ -67,6 +67,9 @@
     <Compile Include="VoteLogs.xaml.cs">
       <DependentUpon>VoteLogs.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Winners.xaml.cs">
+      <DependentUpon>Winners.xaml</DependentUpon>
+    </Compile>
     <Page Include="CandidateAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -136,6 +139,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="VoteLogs.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Winners.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

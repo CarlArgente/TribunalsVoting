@@ -149,6 +149,9 @@ namespace TribunalsVoting
             dashDash2.Text = "";
             dashDash3.Text = "";
 
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new Winners());
+
         }
         //For clicking History
         public void ClickedHistory()
@@ -187,8 +190,9 @@ namespace TribunalsVoting
             }
             if (dashText1.Text.Equals("Winners"))
             {
-               
-                MessageBox.Show("Winners");
+
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new Winners());
             }
             if (dashText1.Text.Equals("Admin Logs"))
             {
