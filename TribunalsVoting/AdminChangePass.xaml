@@ -85,7 +85,7 @@
                 <PasswordBox x:Name="txtOldPassword" materialDesign:HintAssist.Hint="Enter Old Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="220" Margin="10"/>
                 <PasswordBox x:Name="txtPassword" materialDesign:HintAssist.Hint="Enter New Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="220" Margin="10"/>
                 <PasswordBox x:Name="txtConfirmPassword" materialDesign:HintAssist.Hint="Re-enter Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="220" Margin="10"/>
-                <Button Width="150" Height="33" Margin="0,30,10,10" HorizontalAlignment="Center" Background="#FF3827B4" Content="Change Password" FontSize="12" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
+                <Button Width="150" Height="35" Margin="0,30,10,10" HorizontalAlignment="Center" Background="#FF3827B4" Content="Change Password" FontSize="12" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
 
             </StackPanel>
         </StackPanel>

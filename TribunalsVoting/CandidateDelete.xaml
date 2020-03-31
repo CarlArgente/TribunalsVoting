@@ -81,7 +81,7 @@
                 </DataGrid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
                     <TextBox x:Name="txtAchievement" materialDesign:HintAssist.Hint="Candidate ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="100" HorizontalAlignment="Left" Margin="0,0,5,0" IsEnabled="False"/>
-                    <Button Width="114" Height="29" Background="#FF3827B4" Content="Delete" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" VerticalAlignment="Bottom" Click="Click_Delete" Margin="5,0,30,0"/>
+                    <Button Width="114" Height="35" Background="#FF3827B4" Content="Delete" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" VerticalAlignment="Bottom" Click="Click_Delete" Margin="5,0,30,0"/>
 
                 </StackPanel>
 

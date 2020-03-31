@@ -66,11 +66,11 @@
     </UserControl.Resources>
     <Grid>
         <materialDesign:TransitioningContent x:Name="TransitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0:0.5}">
-            <StackPanel Background="White" Height="408">
+            <StackPanel Background="White" Height="auto">
                 <StackPanel HorizontalAlignment="Left" Margin="15" Orientation="Horizontal" Height="40">
                     <TextBlock Text="Candidate Information" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,470,0" Foreground="#FF3827B4"/>
                 </StackPanel>
-                <StackPanel Margin="20,0,15,15">
+                <StackPanel Margin="20,0,15,0">
                     <StackPanel Orientation="Horizontal" >
                         <TextBox x:Name="txtCandidateName" materialDesign:HintAssist.Hint="Candidate Name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" Margin="0,0,150,0"/>
                         <TextBox x:Name="txtCandidateNickname" materialDesign:HintAssist.Hint="Candidate Nickname" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="150"/>
@@ -86,7 +86,7 @@
                         <StackPanel Orientation="Vertical" Margin="0,10,30,0">
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="txtAchievement" materialDesign:HintAssist.Hint="Input Achievement" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="177" HorizontalAlignment="Left"/>
-                                <Button Width="130" Height="29" Background="#FF3827B4" Content="Add Achievement" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" VerticalAlignment="Bottom" Click="Click_btnAchievement"/>
+                                <Button Width="130" Height="35" Background="#FF3827B4" Content="Add Achievement" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" VerticalAlignment="Bottom" Click="Click_btnAchievement"/>
 
                             </StackPanel>
                             <ListBox x:Name="listAchievement" HorizontalAlignment="Left" Height="150" Width="306" VerticalAlignment="Top" Background="#FFEAE9F1" Margin="0,10,0,0" KeyDown="listAchievement_KeyDown"/>
@@ -95,16 +95,16 @@
                         <StackPanel Orientation="Vertical" Margin="0,10,30,0">
                             <StackPanel Orientation="Horizontal">
                                 <TextBox x:Name="txtPlatform" materialDesign:HintAssist.Hint="Input Platform" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="177" HorizontalAlignment="Left"/>
-                                <Button Width="130" Height="29" Background="#FF3827B4" Content="Add Platform" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" VerticalAlignment="Bottom" Click="Click_btnPlatform"/>
+                                <Button Width="130" Height="35" Background="#FF3827B4" Content="Add Platform" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" VerticalAlignment="Bottom" Click="Click_btnPlatform"/>
 
                             </StackPanel>
                             <ListBox x:Name="listPlatform" HorizontalAlignment="Left" Height="150" Width="306" VerticalAlignment="Top" Background="#FFEAE9F1" Margin="0,10,0,0" KeyDown="listPlatform_KeyDown"/>
                         </StackPanel>
 
                     </StackPanel>
-                    <StackPanel Orientation="Horizontal" Height="39" HorizontalAlignment="Right" Margin="0,0,30,0">
-                        <Button Width="130" Height="29" Background="#FF3827B4" Content="Reset" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" Margin="0,0,50,0" Click="Reset_Click" />
-                        <Button Width="130" Height="29" Background="#FF3827B4" Content="Add Candidate" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" />
+                    <StackPanel Orientation="Horizontal" Height="39" HorizontalAlignment="Right" Margin="0,10,30,10">
+                        <Button Width="130" Height="35" Background="#FF3827B4" Content="Reset" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" Margin="0,0,50,0" Click="Reset_Click" />
+                        <Button Width="130" Height="35" Background="#FF3827B4" Content="Add Candidate" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" />
                     </StackPanel>
                 </StackPanel>
 

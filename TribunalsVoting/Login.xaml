@@ -90,7 +90,7 @@
                 <Setter.Value>
                     <ControlTemplate TargetType="{x:Type Button}">
 
-                        <Border x:Name="border" CornerRadius="20" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
+                        <Border x:Name="border" CornerRadius="10" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" SnapsToDevicePixels="true">
                             <ContentPresenter x:Name="contentPresenter" Focusable="False" HorizontalAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" RecognizesAccessKey="True" SnapsToDevicePixels="{TemplateBinding SnapsToDevicePixels}" VerticalAlignment="{TemplateBinding VerticalContentAlignment}"/>
                         </Border>
                         <ControlTemplate.Triggers>
@@ -136,7 +136,7 @@
         <Label x:Name="label1" Content="Sign in" HorizontalAlignment="Left" Margin="59,227,0,0" VerticalAlignment="Top" Width="129" Foreground="#FF3827B4" FontSize="22"/>
         <TextBox x:Name="txtUsername" materialDesign:HintAssist.Hint="Username" Margin="90,299,90,213" Style="{StaticResource MaterialDesignFloatingHintTextBox}" FontSize="14"/>
         <PasswordBox x:Name="txtPassword" materialDesign:HintAssist.Hint="Password" Margin="90,348,90,164" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" FontSize="14"/>
-        <Button Width="140" Height="42" Background="#FF3827B4" Content="Sign in" FontSize="16"  Margin="130,435,130,73" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
+        <Button Width="140" Height="35" Background="#FF3827B4" Content="Sign in" FontSize="16"  Margin="130,435,130,73" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
 
     </Grid>
 </Window>

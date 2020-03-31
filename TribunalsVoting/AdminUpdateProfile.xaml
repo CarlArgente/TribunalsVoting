@@ -82,7 +82,7 @@
                             <TextBlock Text="Username:" Margin="0,10,10,10" Foreground="#FF3827B4" FontWeight="Bold" FontFamily="Segoe UI Semibold"/>
                             <TextBlock x:Name="txtUsername" Text="CarlArgente03" Margin="0,10,10,10" Foreground="Black"/>
                         </StackPanel>
-                        <Button Width="150" Height="33" Margin="0,30,10,10" HorizontalAlignment="Center" Background="#FF3827B4" Content="Change Password" FontSize="12" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
+                        <Button Width="150" Height="35" Margin="0,30,10,10" HorizontalAlignment="Center" Background="#FF3827B4" Content="Change Password" FontSize="12" Foreground="White" BorderBrush="{x:Null}" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
 
                     </StackPanel>
                 </StackPanel>
