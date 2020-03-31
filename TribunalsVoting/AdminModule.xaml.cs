@@ -121,6 +121,9 @@ namespace TribunalsVoting
             dashDash1.Text = "|";
             dashDash2.Text = "|";
             dashDash3.Text = "|";
+
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new StudentList());
         }
         //For clicking Admin
         public void ClickedAdmin()
@@ -188,8 +191,9 @@ namespace TribunalsVoting
             }
             if (dashText1.Text.Equals("List of Student"))
             {
-              
-                MessageBox.Show("Student");
+
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new StudentList());
             }
             if (dashText1.Text.Equals("Winners"))
             {
@@ -214,7 +218,8 @@ namespace TribunalsVoting
             }
             if (dashText2.Text.Equals("Add Student"))
             {
-                MessageBox.Show("Add Student");
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new StudentAdd());
             }
             if (dashText2.Text.Equals("Add Admin"))
             {
@@ -246,7 +251,8 @@ namespace TribunalsVoting
 
             if (dashText3.Text.Equals("Update Student"))
             {
-                MessageBox.Show("Update Student");
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new StudentUpdate());
             }
         }
         //For clicking NavigationBar4
@@ -259,7 +265,9 @@ namespace TribunalsVoting
             }
             if (dashText4.Text.Equals("Delete Student"))
             {
-                MessageBox.Show("Delete Student");
+
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new StudentDelete());
             }
         }
 

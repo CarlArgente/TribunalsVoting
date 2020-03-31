@@ -10,27 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TribunalsVoting
 {
     /// <summary>
-    /// Interaction logic for AdminUpdateProfile.xaml
+    /// Interaction logic for AdminChangePass.xaml
     /// </summary>
-    public partial class AdminUpdateProfile : UserControl
+    public partial class AdminChangePass : Window
     {
-        public AdminUpdateProfile()
+        public AdminChangePass()
         {
             InitializeComponent();
         }
-       
+
         private void Button_Click(object sender, RoutedEventArgs e)
-        {           
-            new AdminChangePass().Close();
-            new AdminChangePass().Show();
+        {
+
         }
-       
-     
+
+        private void Button_Click_1(object sender, RoutedEventArgs e)
+        {
+            this.Hide();        
+            this.Close();
+        }
     }
 }
