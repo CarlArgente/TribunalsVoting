@@ -64,12 +64,33 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="AdminAdd.xaml.cs">
+      <DependentUpon>AdminAdd.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminList.xaml.cs">
+      <DependentUpon>AdminList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AdminUpdateProfile.xaml.cs">
+      <DependentUpon>AdminUpdateProfile.xaml</DependentUpon>
+    </Compile>
     <Compile Include="VoteLogs.xaml.cs">
       <DependentUpon>VoteLogs.xaml</DependentUpon>
     </Compile>
     <Compile Include="Winners.xaml.cs">
       <DependentUpon>Winners.xaml</DependentUpon>
     </Compile>
+    <Page Include="AdminAdd.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AdminUpdateProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="CandidateAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>

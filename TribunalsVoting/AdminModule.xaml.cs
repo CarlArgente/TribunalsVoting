@@ -116,11 +116,11 @@ namespace TribunalsVoting
             Navigation.Visibility = Visibility.Visible;
             dashText1.Text = "List of Student";
             dashText2.Text = "Add Student";
-            dashText3.Text = "";
-            dashText4.Text = "";
+            dashText3.Text = "Update Student";
+            dashText4.Text = "Delete Student";
             dashDash1.Text = "|";
-            dashDash2.Text = " ";
-            dashDash3.Text = " ";
+            dashDash2.Text = "|";
+            dashDash3.Text = "|";
         }
         //For clicking Admin
         public void ClickedAdmin()
@@ -129,12 +129,14 @@ namespace TribunalsVoting
             Navigation.Visibility = Visibility.Visible;
             dashText1.Text = "Admin Accounts";
             dashText2.Text = "Add Admin";
-            dashText3.Text = "Update Admin";
-            dashText4.Text = "Delete Admin";
+            dashText3.Text = "Update Profile";
+            dashText4.Text = "";
             dashDash1.Text = "|";
             dashDash2.Text = "|";
-            dashDash3.Text = "|";
+            dashDash3.Text = "";
 
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new AdminList());
         }
         //For clicking Ranking
         public void ClickedRanking()
@@ -180,8 +182,9 @@ namespace TribunalsVoting
             }
             if (dashText1.Text.Equals("Admin Accounts"))
             {
-               
-                MessageBox.Show("Admin");
+
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new AdminList());
             }
             if (dashText1.Text.Equals("List of Student"))
             {
@@ -215,7 +218,8 @@ namespace TribunalsVoting
             }
             if (dashText2.Text.Equals("Add Admin"))
             {
-                MessageBox.Show("Add Admin");
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new AdminAdd());
             }
 
             if (dashText2.Text.Equals("Vote Logs"))
@@ -227,10 +231,11 @@ namespace TribunalsVoting
         //For clicking NavigationBar3
         public void Nav3Clicked()
         {
-            if (dashText3.Text.Equals("Update Admin"))
+            if (dashText3.Text.Equals("Update Profile"))
             {
-                MessageBox.Show("Update Admin");
-              
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new AdminUpdateProfile());
+
             }
 
             if (dashText3.Text.Equals("Update Candidate"))
@@ -238,19 +243,23 @@ namespace TribunalsVoting
                 GridPrincipal.Children.Clear();
                 GridPrincipal.Children.Add(new CandidateUpdate());
             }
+
+            if (dashText3.Text.Equals("Update Student"))
+            {
+                MessageBox.Show("Update Student");
+            }
         }
         //For clicking NavigationBar4
         public void Nav4Clicked()
         {
-            if (dashText4.Text.Equals("Delete Admin"))
-            {
-                MessageBox.Show("Delete Admin");
-            }
-
             if (dashText4.Text.Equals("Delete Candidate"))
             {
                 GridPrincipal.Children.Clear();
                 GridPrincipal.Children.Add(new CandidateDelete());
+            }
+            if (dashText4.Text.Equals("Delete Student"))
+            {
+                MessageBox.Show("Delete Student");
             }
         }
 
