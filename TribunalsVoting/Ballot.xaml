@@ -87,25 +87,25 @@
                 <RowDefinition Height="0*"/>
             </Grid.RowDefinitions>
             <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
-                <TextBlock Text="President" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+                <TextBlock x:Name="NavTextPresident" Text="President" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="NavTextPresident_MouseDown"/>
                 <TextBlock Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="0,5,10,8" Height="24"/>
 
-                <TextBlock Text="VP for Acadamic Affair" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+                <TextBlock x:Name="NavTextAcademicAffair" Text="VP for Acadamic Affair" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="NavTextAcademicAffair_MouseDown"/>
                 <TextBlock Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="0,5,10,8" Height="24"/>
 
-                <TextBlock Text="VP for External Affair" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+                <TextBlock x:Name="NavTextExternalAffair" Text="VP for External Affair" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="NavTextExternalAffair_MouseDown"/>
                 <TextBlock Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="0,5,10,8" Height="24"/>
 
-                <TextBlock Text="VP for Internal Affair" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+                <TextBlock x:Name="NavTextInternalAffair" Text="VP for Internal Affair" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="NavTextInternalAffair_MouseDown"/>
                 <TextBlock Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="0,5,10,8" Height="24"/>
 
-                <TextBlock Text="VP for Operations" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+                <TextBlock x:Name="NavTextOperation" Text="VP for Operations" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="NavTextOperation_MouseDown"/>
                 <TextBlock Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="0,5,10,8" Height="24"/>
 
-                <TextBlock Text="VP for Finance" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+                <TextBlock x:Name="NavTextFinance" Text="VP for Finance" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="NavTextFinance_MouseDown"/>
                 <TextBlock Text="|" FontFamily="Segoe UI Semibold" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF584BB4" Margin="0,5,10,8" Height="24"/>
 
-                <TextBlock Text="Engineering Representative" FontSize="14" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+                <TextBlock x:Name="NavTextProgram" Text="Engineering Representative" HorizontalAlignment="Center" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,9,10,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold" MouseLeftButtonDown="NavTextProgram_MouseDown"/>
             </StackPanel>
 
         </Grid>
@@ -136,7 +136,7 @@
                 <Button Width="130" Height="35" Background="#FF3827B4" Content="Submit Vote" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" Margin="0,0,0,0"/>
 
             </StackPanel>
-           
+
         </StackPanel>
 
         <Grid Margin="0,98,266,0" Background="#FFEAE9F1">

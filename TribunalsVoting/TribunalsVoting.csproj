@@ -79,8 +79,38 @@
     <Compile Include="Ballot.xaml.cs">
       <DependentUpon>Ballot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="PositionABMRepresentative.xaml.cs">
+      <DependentUpon>PositionABMRepresentative.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionArtsScienceRepresentative.xaml.cs">
+      <DependentUpon>PositionArtsScienceRepresentative.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionEngineeringRepresentative.xaml.cs">
+      <DependentUpon>PositionEngineeringRepresentative.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionFinance.xaml.cs">
+      <DependentUpon>PositionFinance.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionICTRepresentative.xaml.cs">
+      <DependentUpon>PositionICTRepresentative.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionOperation.xaml.cs">
+      <DependentUpon>PositionOperation.xaml</DependentUpon>
+    </Compile>
     <Compile Include="PositionPresident.xaml.cs">
       <DependentUpon>PositionPresident.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionTourismHospitalityRepresentative.xaml.cs">
+      <DependentUpon>PositionTourismHospitalityRepresentative.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionVPAcadamicAffair.xaml.cs">
+      <DependentUpon>PositionVPAcadamicAffair.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionVPExternalAffair.xaml.cs">
+      <DependentUpon>PositionVPExternalAffair.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionVPInternalAffair.xaml.cs">
+      <DependentUpon>PositionVPInternalAffair.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentAdd.xaml.cs">
       <DependentUpon>StudentAdd.xaml</DependentUpon>
@@ -191,7 +221,47 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PositionABMRepresentative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionArtsScienceRepresentative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionEngineeringRepresentative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionFinance.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionICTRepresentative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionOperation.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="PositionPresident.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionTourismHospitalityRepresentative.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionVPAcadamicAffair.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionVPExternalAffair.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="PositionVPInternalAffair.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
