@@ -10,33 +10,29 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
 namespace TribunalsVoting
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for Ballot.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class Ballot : Window
     {
-        public MainWindow()
+        public Ballot()
         {
             InitializeComponent();
+
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new PositionPresident());
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            this.Hide();
-            new Login().Show();
-            this.Close();
+            //for back
+
+            GridPrincipal.Children.Clear();
+            GridPrincipal.Children.Add(new PositionPresident());
         }
-        private void Button_ClickBallot(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            new StudentNumberForm().Show();
-            this.Close();
-        }
-       
     }
 }

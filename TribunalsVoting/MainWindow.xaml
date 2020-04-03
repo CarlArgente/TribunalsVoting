@@ -83,7 +83,11 @@
             </Button>
             <Image Source="Assets/tribunals.png" Stretch="None" RenderTransformOrigin="0.909,0.844" Margin="500,200,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>
             <Label Content="April 03, 2020" FontSize="30" FontFamily="Segoe UI Semibold" Foreground="#FFACACAC" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="52,-150,770,0"/>
-            <Button Width="140" Height="42" Background="{x:Null}" Content="Get Started" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,769,0" Foreground="White" BorderBrush="White" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
+            <StackPanel Orientation="Horizontal" Height="103">
+                <Button Width="140" Height="42" Background="{x:Null}" Content="Sign in" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="60,0,20,0" Foreground="White" BorderBrush="White" Click="Button_Click" Style="{DynamicResource RoundedButtonStyle}" />
+                <Button Width="140" Height="42" Background="{x:Null}" Content="Ballot" FontSize="16" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="0,0,0,0" Foreground="White" BorderBrush="White" Click="Button_ClickBallot" Style="{DynamicResource RoundedButtonStyle}" />
+
+            </StackPanel>
         </StackPanel>
        
     </Grid>

@@ -76,6 +76,12 @@
     <Compile Include="AdminUpdateProfile.xaml.cs">
       <DependentUpon>AdminUpdateProfile.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ballot.xaml.cs">
+      <DependentUpon>Ballot.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PositionPresident.xaml.cs">
+      <DependentUpon>PositionPresident.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StudentAdd.xaml.cs">
       <DependentUpon>StudentAdd.xaml</DependentUpon>
     </Compile>
@@ -84,6 +90,9 @@
     </Compile>
     <Compile Include="StudentList.xaml.cs">
       <DependentUpon>StudentList.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="StudentNumberForm.xaml.cs">
+      <DependentUpon>StudentNumberForm.xaml</DependentUpon>
     </Compile>
     <Compile Include="StudentUpdate.xaml.cs">
       <DependentUpon>StudentUpdate.xaml</DependentUpon>
@@ -107,6 +116,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="AdminUpdateProfile.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ballot.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -178,6 +191,10 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="PositionPresident.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="StudentAdd.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -187,6 +204,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="StudentList.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="StudentNumberForm.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>

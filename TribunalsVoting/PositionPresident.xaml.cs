@@ -16,27 +16,14 @@ using System.Windows.Shapes;
 namespace TribunalsVoting
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for PositionPresident.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class PositionPresident : UserControl
     {
-        public MainWindow()
+        public PositionPresident()
         {
             InitializeComponent();
+               
         }
-
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            new Login().Show();
-            this.Close();
-        }
-        private void Button_ClickBallot(object sender, RoutedEventArgs e)
-        {
-            this.Hide();
-            new StudentNumberForm().Show();
-            this.Close();
-        }
-       
     }
 }
