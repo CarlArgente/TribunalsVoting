@@ -22,7 +22,6 @@ namespace TribunalsVoting
     public partial class Login : Window
     {
         //References
-        private MySqlConnection conn = new MySqlConnection("server=localhost;database=voting_system;uid=root;pwd=;");
         private String getTime;
         //for executing all queries in one method(INSERT, UPDATE, DELETE)
         private void executeQuery(String query, String errorMessage)    //lagyan nyo nalang ng another parameter para sa message na gusto nyo
@@ -30,8 +29,8 @@ namespace TribunalsVoting
             try
             {
 
-                conn.Open();
-                MySqlCommand cmd = new MySqlCommand(query, conn);
+                getter.conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, getter.conn);
                 if (cmd.ExecuteNonQuery() == 1)
                 {
                     //Display Message for inserting, updating, deleting
@@ -48,7 +47,7 @@ namespace TribunalsVoting
             }
             finally
             {
-                conn.Close();
+                getter.conn.Close();
             }
         }
 
@@ -58,22 +57,23 @@ namespace TribunalsVoting
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {        
-                conn.Open();
-                using (conn)
+        {
+                getter.conn.Open();
+                using (getter.conn)
                 {
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + txtPassword.Password + "'", conn);
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + txtPassword.Password + "'", getter.conn);
                     MySqlDataReader reader = command.ExecuteReader();
                     if (reader.Read())
                     {
                         MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
                         //for passing value in getter class
                         getter.getId = Int32.Parse(reader["Admin_ID"].ToString());
+                        getter.getUsername = reader["Username"].ToString();
                         var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
                         getTime = time.ToString();
                         getter.getTimeAndDate = getTime;
 
-                        conn.Close();
+                        getter.conn.Close();
                         //for inserting in historyLog
                         String sql = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','logged in ','" + getter.getTimeAndDate + "')";
                         executeQuery(sql, "Failed to insert in tbl_history");
@@ -98,7 +98,7 @@ namespace TribunalsVoting
                         reader.Close();
                     }
                 }
-                conn.Close();                     
+                getter.conn.Close();                     
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

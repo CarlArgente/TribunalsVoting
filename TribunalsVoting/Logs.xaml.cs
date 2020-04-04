@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace TribunalsVoting
 {
@@ -21,42 +23,66 @@ namespace TribunalsVoting
     /// </summary>
     public partial class Logs : UserControl
     {
-        //tanggalin mo nalang kung papalitan mo na ng value galing database
-        public class DataObject
+        //for updating table
+        void UpdateTable()
         {
-            public int A { get; set; }
-            public int B { get; set; }
-            public String C { get; set; }
-            public String D { get; set; }
+            try
+            {
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM tbl_history", getter.conn);
+                getter.conn.Open();
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);                                          
+                dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                getter.conn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+        }
+        void SetSizeColumns()
+        {
+            dataGrid1.Columns[0].Width = 100;
+            dataGrid1.Columns[1].Width = 100;
+            dataGrid1.Columns[2].Width = 200;
+            dataGrid1.Columns[3].Width = 220;
+
         }
         public Logs()
         {
             InitializeComponent();
-            //tanggalin mo nalang kung papalitan mo na ng value galing database
-            var list = new ObservableCollection<DataObject>();
-
-            list.Add(new DataObject() { A = 1, B = 1001, C = "Login", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 2, B = 1001, C = "Logout", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 3, B = 1001, C = "Add Account", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 4, B = 1001, C = "Delete Account", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 5, B = 1001, C = "Add Candidate", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 6, B = 1001, C = "Delete Candidate", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 7, B = 1001, C = "Update Candidate", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 8, B = 1001, C = "Reset Candidate", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 9, B = 1001, C = "Login", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 10, B = 1001, C = "Logout", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 11, B = 1001, C = "Login", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 12, B = 1001, C = "Logout", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 13, B = 1001, C = "Login", D = "2020-06-15 09:34:21" });
-            list.Add(new DataObject() { A = 14, B = 1001, C = "Logout", D = "2020-06-15 09:34:21" });
-
-         
-            this.dataGrid1.ItemsSource = list;
+            UpdateTable();
+        }
+       
+        private void DataGrid1_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetSizeColumns();
         }
 
-        private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
         {
+            //for searching
+            try {
+                if (txtSearch.Text.Equals(""))
+                {
+                    UpdateTable();
+                    SetSizeColumns();
+                }
+                else
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM tbl_history WHERE Logs_ID LIKE '" + txtSearch.Text + "%'  OR Activities LIKE '"+txtSearch.Text+ "%' OR Admin_ID LIKE '" + txtSearch.Text + "%' OR Date_Time LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    getter.conn.Open();
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                    getter.conn.Close();
 
+                    SetSizeColumns();
+                }
+            }catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

@@ -73,7 +73,7 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <materialDesign:PackIcon Kind="User" Width="220" Height="220" Foreground="#FF584BB4" Margin="0,0,40,40" VerticalAlignment="Center"/>
                     <StackPanel Orientation="Vertical" Margin="20">
-                        <TextBox x:Name="txtAdminId" materialDesign:HintAssist.Hint="Admin ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" Margin="10"/>
+                        <TextBox x:Name="txtAdminId" materialDesign:HintAssist.Hint="Admin ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" Margin="10" IsEnabled="False"/>
                         <TextBox x:Name="txtUsername" materialDesign:HintAssist.Hint="Username" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" Margin="10"/>
                         <PasswordBox x:Name="txtPassword" materialDesign:HintAssist.Hint="Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="220" Margin="10"/>
                         <PasswordBox x:Name="txtConfirmPassword" materialDesign:HintAssist.Hint="Re-enter Password" Style="{StaticResource MaterialDesignFloatingHintPasswordBox}" Width="220" Margin="10"/>

@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace TribunalsVoting
 {
@@ -21,38 +23,55 @@ namespace TribunalsVoting
     /// </summary>
     public partial class AdminList : UserControl
     {
-        //tanggalin mo nalang kung papalitan mo na ng value galing database
-        public class DataObject
+        //for updating table
+        void UpdateTable()
         {
-            public int A { get; set; }
-            public String B { get; set; }
+            try
+            {
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Admin_ID, Username FROM tbl_admin", getter.conn);
+                getter.conn.Open();
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                getter.conn.Close();
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
 
         public AdminList()
         {
             InitializeComponent();
 
-            //tanggalin mo nalang kung papalitan mo na ng value galing database
-            var list = new ObservableCollection<DataObject>();
+            UpdateTable();
 
-            list.Add(new DataObject() { A = 1, B = "Carl Emerson L. Argente" });
-            list.Add(new DataObject() { A = 2, B = "Tan" });
-            list.Add(new DataObject() { A = 3, B = "Bersamin" });
-            list.Add(new DataObject() { A = 4, B = "Cejo" });
-            list.Add(new DataObject() { A = 5, B = "Argente" });
-            list.Add(new DataObject() { A = 6, B = "Tan" });
-            list.Add(new DataObject() { A = 7, B = "Bersamin" });
-            list.Add(new DataObject() { A = 8, B = "Cejo" });
-            list.Add(new DataObject() { A = 9, B = "Argente" });
-            list.Add(new DataObject() { A = 10, B = "Tan" });
-            list.Add(new DataObject() { A = 11, B = "Bersamin" });
-            list.Add(new DataObject() { A = 12, B = "Cejo" });
-            list.Add(new DataObject() { A = 13, B = "Argente" });
-            list.Add(new DataObject() { A = 14, B = "Tan" });
-            list.Add(new DataObject() { A = 15, B = "Bersamin" });
-            list.Add(new DataObject() { A = 16, B = "Cejo" });
-            this.dataGrid1.ItemsSource = list;
+        }
 
+        private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            //for searching
+            try
+            {
+                if (txtSearch.Text.Equals(""))
+                {
+                    UpdateTable();               
+                }
+                else
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Admin_ID, Username FROM tbl_admin WHERE Admin_ID LIKE '" + txtSearch.Text + "%'  OR Username LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    getter.conn.Open();
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                    getter.conn.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }

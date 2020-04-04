@@ -12,19 +12,16 @@
             <StackPanel Background="White" Height="408">
                 <StackPanel HorizontalAlignment="Left" Margin="15" Orientation="Horizontal">
                     <TextBlock Text="Admin List" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,470,0" Foreground="#FF3827B4"/>
-                    <TextBox materialDesign:HintAssist.Hint="Search Admin" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220"/>
+                    <TextBox x:Name="txtSearch" materialDesign:HintAssist.Hint="Search Admin" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" KeyUp="TxtSearch_KeyUp"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" >
                     <materialDesign:PackIcon Kind="PeopleGroup" Width="220" Height="220" Foreground="#FF584BB4" Margin="0,0,75,35" VerticalAlignment="Center"/>
-                    <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" IsReadOnly="True" 
+                    <DataGrid AutoGenerateColumns="True" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" IsReadOnly="True" 
                     FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" 
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20"
                     CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Admin ID" Binding="{Binding A}" Width="auto"/>
-                            <DataGridTextColumn Header="Username" Binding="{Binding B}" Width="auto"/>
-                        
-                        </DataGrid.Columns>
+                       </DataGrid.Columns>
                     </DataGrid>
                   </StackPanel>
             </StackPanel>
