@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -20,7 +21,36 @@ namespace TribunalsVoting
     /// </summary>
     public partial class Login : Window
     {
-        MySqlConnection conn;
+        //References
+        private MySqlConnection conn = new MySqlConnection("server=localhost;database=voting_system;uid=root;pwd=;");
+        private String getTime;
+        //for executing all queries in one method(INSERT, UPDATE, DELETE)
+        private void executeQuery(String query, String errorMessage)    //lagyan nyo nalang ng another parameter para sa message na gusto nyo
+        {
+            try
+            {
+
+                conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    //Display Message for inserting, updating, deleting
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                conn.Close();
+            }
+        }
 
         public Login()
         {
@@ -28,28 +58,31 @@ namespace TribunalsVoting
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            if (txtUsername.Equals("login"))
-            {
-                string connetionString = "server=localhost;database=db_tribunals;uid=root;pwd=;";
-                conn = new MySqlConnection(connetionString);
-
+        {        
                 conn.Open();
                 using (conn)
                 {
                     MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + txtPassword.Password + "'", conn);
                     MySqlDataReader reader = command.ExecuteReader();
-                    if (reader.HasRows)
+                    if (reader.Read())
                     {
-                        while (reader.Read())
-                        {
-                            MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                        //for passing value in getter class
+                        getter.getId = Int32.Parse(reader["Admin_ID"].ToString());
+                        var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                        getTime = time.ToString();
+                        getter.getTimeAndDate = getTime;
 
-                            this.Hide();
-                            new AdminModule().Show();
-                            this.Close();
-                        }
+                        conn.Close();
+                        //for inserting in historyLog
+                        String sql = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','logged in ','" + getter.getTimeAndDate + "')";
+                        executeQuery(sql, "Failed to insert in tbl_history");
                         reader.Close();
+                        
+                        this.Hide();
+                        new AdminModule().Show();
+                        this.Close();
+                       
                     }
                     else if (txtUsername.Text == "superadmin" && txtPassword.Password == "superadmin")
                     {
@@ -65,15 +98,7 @@ namespace TribunalsVoting
                         reader.Close();
                     }
                 }
-                conn.Close();
-            }
-            else
-            {
-                this.Hide();
-                new AdminModule().Show();
-                this.Close();
-            }
-            
+                conn.Close();                     
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)
@@ -83,6 +108,8 @@ namespace TribunalsVoting
                 DragMove(); 
             }
         }
+
+
 
         private void txtUsername_GotFocus(object sender, RoutedEventArgs e)
         {

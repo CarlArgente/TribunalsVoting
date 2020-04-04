@@ -79,6 +79,7 @@
     <Compile Include="Ballot.xaml.cs">
       <DependentUpon>Ballot.xaml</DependentUpon>
     </Compile>
+    <Compile Include="getter.cs" />
     <Compile Include="PositionABMRepresentative.xaml.cs">
       <DependentUpon>PositionABMRepresentative.xaml</DependentUpon>
     </Compile>
