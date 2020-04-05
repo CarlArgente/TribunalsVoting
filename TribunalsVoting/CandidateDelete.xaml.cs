@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -13,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using MySql.Data.MySqlClient;
 
 namespace TribunalsVoting
 {
@@ -21,35 +23,106 @@ namespace TribunalsVoting
     /// </summary>
     public partial class CandidateDelete : UserControl
     {
-        //tanggalin mo nalang kung papalitan mo na ng value galing database
-        public class DataObject
+        String id, getId, getTime;
+        //for updating table
+        void UpdateTable()
         {
-            public int A { get; set; }
-            public String B { get; set; }
-            public String C { get; set; }
+            try
+            {
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id, Candidate_Name, Candidate_Position FROM tbl_candidates", getter.conn);
+                getter.conn.Open();
+                DataSet ds = new DataSet();
+                adapter.Fill(ds);
+                dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                getter.conn.Close();
+            }
+            catch (Exception e)
+            {
+               
+            }
         }
+        void DisplayCandidateData(String id)
+        {
+            getter.conn.Close();
+            getter.conn.Open();
+            MySqlCommand cmd = getter.conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT Candidate_id FROM tbl_candidates WHERE Candidate_id='" + id + "' ";
+            MySqlDataReader sqlDataReader = null;
+            sqlDataReader = cmd.ExecuteReader();
+            if (sqlDataReader.Read())
+            {
+                //for getting value
+                getId = sqlDataReader["Candidate_id"].ToString();
+                
+                txtCandidateID.Text = getId;
+            }
+            sqlDataReader.Close();
+            getter.conn.Close();
+        }
+        void SetSizeColumns()
+        {
+            dataGrid1.Columns[0].Width = 70;
+            dataGrid1.Columns[1].Width = 200;
+            dataGrid1.Columns[2].Width = 380;
+        }
+        void ExecuteDelete(String query)
+        {
+            try
+            {
 
+                getter.conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, getter.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    MessageBox.Show("Successfully Deleted Candidate", "Successfully Added", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+                else
+                {
+                    MessageBox.Show("error");
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                getter.conn.Close();
+            }
+        }
+        void RecordHistory(String query)  
+        {
+            try
+            {
+
+                getter.conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, getter.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                   //nothing to display
+                }
+                else
+                {
+                    
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                getter.conn.Close();
+            }
+        }
         public CandidateDelete()
         {         
             InitializeComponent();
-
-            //tanggalin mo nalang kung papalitan mo na ng value galing database
-            var list = new ObservableCollection<DataObject>();
-
-            list.Add(new DataObject() { A = 1, B = "Carl Emerson L. Argente", C = "Vice President for External Affair" });
-            list.Add(new DataObject() { A = 2, B = "Carl Emerson L. Argente", C = "Accountancy, Business and Management Representative" });
-            list.Add(new DataObject() { A = 3, B = "Carl Emerson L. Argente", C = "Tourism and Hospitality Representative", });
-            list.Add(new DataObject() { A = 4, B = "Carl Emerson L. Argente", C = "Vice President for External Affair" });
-            list.Add(new DataObject() { A = 5, B = "Carl Emerson L. Argente", C = "Accountancy, Business and Management Representative" });
-            list.Add(new DataObject() { A = 6, B = "Carl Emerson L. Argente", C = "Tourism and Hospitality Representative", });
-            list.Add(new DataObject() { A = 7, B = "Carl Emerson L. Argente", C = "Vice President for External Affair" });
-            list.Add(new DataObject() { A = 8, B = "Carl Emerson L. Argente", C = "Accountancy, Business and Management Representative" });
-            list.Add(new DataObject() { A = 9, B = "Carl Emerson L. Argente", C = "Tourism and Hospitality Representative", });
-            list.Add(new DataObject() { A = 10, B = "Carl Emerson L. Argente", C = "Vice President for External Affair" });
-            list.Add(new DataObject() { A = 11, B = "Carl Emerson L. Argente", C = "Accountancy, Business and Management Representative" });
-            list.Add(new DataObject() { A = 12, B = "Carl Emerson L. Argente", C = "Tourism and Hospitality Representative", });
-            this.dataGrid1.ItemsSource = list;
-
+            UpdateTable();
+            
         }
 
         private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -59,7 +132,61 @@ namespace TribunalsVoting
 
         private void Click_Delete(object sender, RoutedEventArgs e)
         {
+            String deleteQuery = "DELETE FROM tbl_candidates WHERE Candidate_id = '" + txtCandidateID.Text + "' ";
+            ExecuteDelete(deleteQuery);
 
+            //for inserting in history
+            var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+            getTime = time.ToString();
+            String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "', CONCAT('Deleted Candidate with an ID of ', '" + id + "') , '" + getTime + "')";
+            RecordHistory(sql1);
+
+            UpdateTable();
+            SetSizeColumns();
+            getter.conn.Close();
+            txtCandidateID.Text = null;
+        }
+
+        private void DataGrid1_Loaded(object sender, RoutedEventArgs e)
+        {
+            SetSizeColumns();
+        }
+
+        private void TextBox_KeyUp(object sender, KeyEventArgs e)
+        {
+            //for searching
+            try
+            {
+                if (txtSearch.Text.Equals(""))
+                {
+                    UpdateTable();
+                    SetSizeColumns();
+                }
+                else
+                {
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id, Candidate_Name, Candidate_Position FROM tbl_candidates WHERE Candidate_id LIKE '" + txtSearch.Text + "%'  OR Candidate_Name LIKE '" + txtSearch.Text + "%' OR Candidate_Position LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    getter.conn.Open();
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                    getter.conn.Close();
+
+                    SetSizeColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
+
+        private void DataGrid1_SelectedCellsChanged(object sender, SelectedCellsChangedEventArgs e)
+        {
+            //for displaying
+            DataRowView dataRow = dataGrid1.SelectedItem as DataRowView;
+            id = dataRow.Row[0].ToString();
+            DisplayCandidateData(id);
+          
         }
     }
 }

@@ -42,16 +42,17 @@ namespace TribunalsVoting
         }
         void SetSizeColumns()
         {
+            getter.conn.Close();
             dataGrid1.Columns[0].Width = 100;
             dataGrid1.Columns[1].Width = 100;
-            dataGrid1.Columns[2].Width = 200;
+            dataGrid1.Columns[2].Width = 220;
             dataGrid1.Columns[3].Width = 220;
 
         }
         public Logs()
         {
             InitializeComponent();
-            UpdateTable();
+            UpdateTable();         
         }
        
         private void DataGrid1_Loaded(object sender, RoutedEventArgs e)

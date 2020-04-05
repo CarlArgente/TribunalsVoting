@@ -72,13 +72,11 @@
                     <TextBox materialDesign:HintAssist.Hint="Search Candidate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="194"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" >
-                    <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" IsReadOnly="True"
+                    <DataGrid AutoGenerateColumns="true" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" IsReadOnly="True"
                     FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" 
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20"
-                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
+                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" Loaded="DataGrid1_Loaded" SelectedCellsChanged="DataGrid1_SelectedCellsChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding A}" Width="70"/>
-                            <DataGridTextColumn Header="Lastname" Binding="{Binding B}" Width="150"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
@@ -115,7 +113,7 @@
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal" Height="39" HorizontalAlignment="Right" Margin="0,5,30,0">
-                            <Button Width="130" Height="35" Background="#FF3827B4" Content="Update Candidate" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" />
+                            <Button Width="130" Height="35" Background="#FF3827B4" Content="Update Candidate" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" Click="Button_Click" />
                         </StackPanel>
 
                     </StackPanel>

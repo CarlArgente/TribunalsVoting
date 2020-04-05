@@ -58,45 +58,43 @@
             <StackPanel Background="White" Height="408">
                 <StackPanel HorizontalAlignment="Left" Margin="15" Orientation="Horizontal">
                     <TextBlock Text="Candidate List" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,470,0" Foreground="#FF3827B4"/>
-                    <TextBox materialDesign:HintAssist.Hint="Search Candidate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220"/>
+                    <TextBox x:Name="txtSearch" materialDesign:HintAssist.Hint="Search Candidate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" KeyUp="TxtSearch_KeyUp"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" >
-                    <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" IsReadOnly="True" 
+                    <DataGrid AutoGenerateColumns="True" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" IsReadOnly="True" 
                     FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" 
-                    HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20"
-                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False">
+                    HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20" Loaded="DataGrid_Loaded"
+                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectedCellsChanged="DataGrid1_SelectedCellsChanged">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="ID" Binding="{Binding A}" Width="70"/>
-                            <DataGridTextColumn Header="Full name" Binding="{Binding B}" Width="150"/>
                         </DataGrid.Columns>
                     </DataGrid>
 
                     <StackPanel Margin="20,10,15,15">
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Name:" Margin="0,10,10,10" Foreground="#FF3827B4" FontWeight="Bold" FontFamily="Segoe UI Semibold"/>
-                            <TextBlock x:Name="txtName" Text="Argente, Carl Emerson L." Margin="0,10,10,10" Foreground="Black"/>
+                            <TextBlock x:Name="txtName" Text="" Margin="0,10,10,10" Foreground="Black"/>
                             <TextBlock Text="Nickname:" Margin="30,10,10,10" Foreground="#FF3827B4" FontWeight="Bold" FontFamily="Segoe UI Semibold"/>
-                            <TextBlock x:Name="txtNickName" Text="Badong" Margin="0,10,10,10" Foreground="Black"/>
+                            <TextBlock x:Name="txtNickName" Text="" Margin="0,10,10,10" Foreground="Black"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="Position:" Margin="0,10,10,10" Foreground="#FF3827B4" FontWeight="Bold" FontFamily="Segoe UI Semibold"/>
-                            <TextBlock x:Name="txtPosition" Text="Accountancy, Business and Management Representative" Margin="0,10,10,10" Foreground="Black"/>
+                            <TextBlock x:Name="txtPosition" Text="" Margin="0,10,10,10" Foreground="Black"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <TextBlock Text="PartyList:" Margin="0,10,10,10" Foreground="#FF3827B4" FontWeight="Bold" FontFamily="Segoe UI Semibold"/>
-                            <TextBlock x:Name="txtPartyList" Text="KaISA Partylist" Margin="0,10,10,10" Foreground="Black"/>
+                            <TextBlock x:Name="txtPartyList" Text="" Margin="0,10,10,10" Foreground="Black"/>
                         </StackPanel>
 
                         <StackPanel Orientation="Horizontal">
                             <StackPanel Orientation="Vertical" Margin="0,0,20,0">
                                 <TextBlock Text="Achievement:" Margin="0,10,10,10" Foreground="#FF3827B4" FontWeight="Bold" FontFamily="Segoe UI Semibold"/>
-                                <ListBox x:Name="txtAchievement" HorizontalAlignment="Left" Height="150" Width="270" VerticalAlignment="Top"/>
+                                <ListBox x:Name="listAchievement" HorizontalAlignment="Left" Height="150" Width="270" VerticalAlignment="Top" Background="#FFEAE9F1"/>
                             </StackPanel>
                             <StackPanel Orientation="Vertical" Margin="0,0,0,0">
                                 <TextBlock Text="Platform:" Margin="0,10,10,10" Foreground="#FF3827B4" FontWeight="Bold" FontFamily="Segoe UI Semibold"/>
-                                <ListBox x:Name="txtPlatform" HorizontalAlignment="Left" Height="150" Width="270" VerticalAlignment="Top"/>
+                                <ListBox x:Name="listPlatform" HorizontalAlignment="Left" Height="150" Width="270" VerticalAlignment="Top" Background="#FFEAE9F1"/>
                             </StackPanel>
                         </StackPanel>
 

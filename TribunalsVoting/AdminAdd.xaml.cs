@@ -111,8 +111,8 @@ namespace TribunalsVoting
         public AdminAdd()
         {
             InitializeComponent();
-            GettingMaxID();
-            DisplayMaxID();
+            //GettingMaxID();
+            //DisplayMaxID();
         }
 
 
@@ -125,7 +125,6 @@ namespace TribunalsVoting
             else if (!txtPassword.Password.Equals(txtConfirmPassword.Password))
             {
                 MessageBox.Show("Password don`t match", "Add Failed", MessageBoxButton.OK, MessageBoxImage.Error);
-
             }
             else
             {
@@ -135,7 +134,7 @@ namespace TribunalsVoting
                 //for recording in history
                 var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
                 getTime = time.ToString();
-                String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','Added Admin with an ID of "+txtAdminId.Text+" ' ,'" + getTime + "')";
+                String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "', CONCAT('Added Admin with an ID of ', (SELECT MAX(Candidate_id)FROM tbl_candidates)) , '" + getTime + "')";
                 ExecuteInsertHistory(sql1, "Failed to insert in tbl_history");
 
                 Reset();
