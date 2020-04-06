@@ -113,6 +113,9 @@
     <Compile Include="PositionVPInternalAffair.xaml.cs">
       <DependentUpon>PositionVPInternalAffair.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Ranking.xaml.cs">
+      <DependentUpon>Ranking.xaml</DependentUpon>
+    </Compile>
     <Compile Include="StudentAdd.xaml.cs">
       <DependentUpon>StudentAdd.xaml</DependentUpon>
     </Compile>
@@ -263,6 +266,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="PositionVPInternalAffair.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Ranking.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
