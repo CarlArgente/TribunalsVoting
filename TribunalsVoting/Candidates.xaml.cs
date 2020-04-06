@@ -31,7 +31,7 @@ namespace TribunalsVoting
             getter.conn.Close();
             try
             {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id, Candidate_Name FROM tbl_candidates", getter.conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id AS ID, Candidate_Name FROM tbl_candidates", getter.conn);
                 getter.conn.Open();
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -136,7 +136,7 @@ namespace TribunalsVoting
                 }
                 else
                 {
-                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id, Candidate_Name FROM tbl_candidates WHERE Candidate_id LIKE '" + txtSearch.Text + "%'  OR Candidate_Name LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id AS ID, Candidate_Name FROM tbl_candidates WHERE Candidate_id LIKE '" + txtSearch.Text + "%'  OR Candidate_Name LIKE '" + txtSearch.Text + "%' ", getter.conn);
                     getter.conn.Open();
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);

@@ -53,7 +53,7 @@ namespace TribunalsVoting
             getter.conn.Close();
             try
             {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id, Candidate_Name FROM tbl_candidates", getter.conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id AS ID, Candidate_Name FROM tbl_candidates", getter.conn);
                 getter.conn.Open();
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -62,7 +62,7 @@ namespace TribunalsVoting
             }
             catch (Exception e)
             {
-                MessageBox.Show(e.Message);
+               // MessageBox.Show(e.Message);
             }
             finally
             {
@@ -208,7 +208,7 @@ namespace TribunalsVoting
             InitializeComponent();
             AddItemInComboBox();
             UpdateTable();
-
+            getter.conn.Close();
 
         }
         private void Click_btnAchievement(object sender, RoutedEventArgs e)
@@ -247,6 +247,36 @@ namespace TribunalsVoting
             }
 
         }
+
+        private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            //for searching
+            try
+            {
+                if (txtSearch.Text.Equals(""))
+                {
+                    UpdateTable();
+                    SetSizeColumns();
+                }
+                else
+                {
+                    getter.conn.Close();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Candidate_id AS ID, Candidate_Name FROM tbl_candidates WHERE Candidate_id LIKE '" + txtSearch.Text + "%'  OR Candidate_Name LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    getter.conn.Open();
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                    getter.conn.Close();
+
+                    SetSizeColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+                
+            }
+        }
+
         private void listPlatform_KeyDown(object sender, KeyEventArgs e)
         {
             if (listPlatform.Items.Count > 0)
@@ -290,7 +320,7 @@ namespace TribunalsVoting
             DisplayCandidateData(id);
             DisplayAchievementData(id);
             DisplayPlatformData(id);
-
+            getter.conn.Close();
         }
     }
 }

@@ -163,45 +163,57 @@ namespace TribunalsVoting
             }
             else
             {
-                getter.conn.Open();
-                MySqlCommand cmd = getter.conn.CreateCommand();
-                cmd.CommandType = CommandType.Text;
-                cmd.CommandText = "Select * from tbl_candidates where Candidate_Position = '" + cmbPosition.SelectedItem.ToString() + "' AND Candidate_Party = '" + cmbPartylist.SelectedItem.ToString() + "'";
-                MySqlDataReader sqlDataReader = null;
-                sqlDataReader = cmd.ExecuteReader();
-                if (!sqlDataReader.HasRows)
+                try
                 {
-                    getter.conn.Close();
-                    //for inserting information of candidate
-                    String sql = "INSERT INTO tbl_candidates(Candidate_Name, Candidate_Nickname, Candidate_Position, Candidate_Party) " +
-                        "VALUES ('" + txtCandidateName.Text + "', '" + txtCandidateNickname.Text + "', '" + cmbPosition.SelectedItem.ToString() + "', '" + cmbPartylist.SelectedItem.ToString() + "')";
-                    executeQuery(sql, "Failed to Insert Candidate");
-                    //for insert achievements
-                    for (int x = 0; x < listAchievement.Items.Count; x++)
+                    getter.conn.Open();
+                    MySqlCommand cmd = getter.conn.CreateCommand();
+                    cmd.CommandType = CommandType.Text;
+                    cmd.CommandText = "Select * from tbl_candidates where Candidate_Position = '" + cmbPosition.SelectedItem.ToString() + "' AND Candidate_Party = '" + cmbPartylist.SelectedItem.ToString() + "'";
+                    MySqlDataReader sqlDataReader = null;
+                    sqlDataReader = cmd.ExecuteReader();
+                    if (!sqlDataReader.HasRows)
                     {
-                        String insertAchievement = "INSERT INTO tbl_candidate_achievement VALUES('', '" + listAchievement.Items[x].ToString() + "', (SELECT MAX(Candidate_id)FROM tbl_candidates)) ";
-                        executeQuery(insertAchievement, "Failed to Insert Achievement");
-                    }
-                    //for inserting Platforms
-                    for (int y = 0; y < listPlatform.Items.Count; y++)
-                    {
-                        String insertPlatform = "INSERT INTO tbl_candidate_platform VALUES('', '" + listPlatform.Items[y].ToString() + "', (SELECT MAX(Candidate_id)FROM tbl_candidates)) ";
-                        executeQuery(insertPlatform, "Failed to Insert Platform");
-                    }
-                    //for inserting in tbl_votes
-                    String insertVote = "INSERT INTO tbl_votes(Candidate_ID, Number_Of_Votes) VALUES ((SELECT MAX(Candidate_id) FROM tbl_candidates),0)";
-                    executeQuery(insertVote, "Failed to Insert in tbl_votes");
-                    //for inserting in history
-                    var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
-                    getTime = time.ToString();
-                    String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "', CONCAT('Added Candidate with an ID of ', (SELECT MAX(Candidate_id)FROM tbl_candidates)) , '" + getTime + "')";
-                    executeQuery(sql1, "Failed to insert in tbl_history");
+                         getter.conn.Close();
+                        //for inserting information of candidate
+                        String sql = "INSERT INTO tbl_candidates(Candidate_Name, Candidate_Nickname, Candidate_Position, Candidate_Party) " +
+                            "VALUES ('" + txtCandidateName.Text + "', '" + txtCandidateNickname.Text + "', '" + cmbPosition.SelectedItem.ToString() + "', '" + cmbPartylist.SelectedItem.ToString() + "')";
+                        executeQuery(sql, "Failed to Insert Candidate");
+                        //for insert achievements
+                        for (int x = 0; x < listAchievement.Items.Count; x++)
+                        {
+                            String insertAchievement = "INSERT INTO tbl_candidate_achievement VALUES('', '" + listAchievement.Items[x].ToString() + "', (SELECT MAX(Candidate_id)FROM tbl_candidates)) ";
+                            executeQuery(insertAchievement, "Failed to Insert Achievement");
+                        }
+                        //for inserting Platforms
+                        for (int y = 0; y < listPlatform.Items.Count; y++)
+                        {
+                            String insertPlatform = "INSERT INTO tbl_candidate_platform VALUES('', '" + listPlatform.Items[y].ToString() + "', (SELECT MAX(Candidate_id)FROM tbl_candidates)) ";
+                            executeQuery(insertPlatform, "Failed to Insert Platform");
+                        }
+                        //for inserting in tbl_votes
+                        String insertVote = "INSERT INTO tbl_votes(Candidate_ID, Number_Of_Votes) VALUES ((SELECT MAX(Candidate_id) FROM tbl_candidates),0)";
+                        executeQuery(insertVote, "Failed to Insert in tbl_votes");
+                        //for inserting in history
+                        var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                        getTime = time.ToString();
+                        String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "', CONCAT('Added Candidate with an ID of ', (SELECT MAX(Candidate_id)FROM tbl_candidates)) , '" + getTime + "')";
+                        executeQuery(sql1, "Failed to insert in tbl_history");
 
-                    MessageBox.Show("Successfully Added Candidate", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-                    Reset();
-                
+                        MessageBox.Show("Successfully Added Candidate", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                        Reset();
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("Please Check the Position/Partylist of the Candidate", "Failed", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                    }
+                    sqlDataReader.Close();
+                    getter.conn.Close();
                 }
-                getter.conn.Close();
+                catch(Exception e)
+                {
+                    MessageBox.Show(e.Message);
+                }
             }           
         }
         private void Reset_Click(object sender, RoutedEventArgs e)

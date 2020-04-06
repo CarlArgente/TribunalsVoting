@@ -69,7 +69,7 @@
             <StackPanel Background="White" Height="auto" Width="auto">
                 <StackPanel HorizontalAlignment="Left" Margin="15" Orientation="Horizontal">
                     <TextBlock Text="Update Candidate" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,105,0" Foreground="#FF3827B4"/>
-                    <TextBox materialDesign:HintAssist.Hint="Search Candidate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="194"/>
+                    <TextBox x:Name="txtSearch" materialDesign:HintAssist.Hint="Search Candidate" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="194" KeyUp="TxtSearch_KeyUp"/>
                 </StackPanel>
                 <StackPanel Orientation="Horizontal" >
                     <DataGrid AutoGenerateColumns="true" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" IsReadOnly="True"
