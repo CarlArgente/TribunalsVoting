@@ -28,6 +28,7 @@ namespace TribunalsVoting
         {
             try
             {
+                getter.conn.Close();
                 MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT * FROM tbl_history", getter.conn);
                 getter.conn.Open();
                 DataSet ds = new DataSet();

@@ -65,7 +65,7 @@
         </Style>
     </UserControl.Resources>
     <materialDesign:TransitioningContent x:Name="TransitionContentSlide" OpeningEffect="{materialDesign:TransitionEffect SlideInFromRight,Duration=0:0:0:0.5}">
-        <Grid Height="363">
+        <Grid Height="auto">
             <StackPanel Background="White" Height="auto">
                 <StackPanel HorizontalAlignment="Left" Margin="15" Orientation="Horizontal">
                     <TextBlock Text="Student Information" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,470,0" Foreground="#FF3827B4"/>
@@ -73,7 +73,6 @@
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Center">
                     <materialDesign:PackIcon Kind="User" Width="220" Height="220" Foreground="#FF584BB4" Margin="0,0,40,40" VerticalAlignment="Center"/>
                     <StackPanel Orientation="Vertical" Margin="20">
-                        <TextBox x:Name="txtStudentId" materialDesign:HintAssist.Hint="Student ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" Margin="10"/>
                         <TextBox x:Name="txtStudentNumber" materialDesign:HintAssist.Hint="Student Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" Margin="10"/>
                         <TextBox x:Name="txtStudentName" materialDesign:HintAssist.Hint="Full name" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" Margin="10"/>
                         <ComboBox Height="30" x:Name="cmbProgram" Width="220" materialDesign:HintAssist.Hint="Program" Margin="10" HorizontalAlignment="Left"/>

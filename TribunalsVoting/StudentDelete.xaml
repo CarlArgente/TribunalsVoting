@@ -69,19 +69,16 @@
             <StackPanel Orientation="Vertical" Margin="30">
                 <TextBlock Text="Delete Student" HorizontalAlignment="Center" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Margin="0,0,550,0" Foreground="#FF3827B4" Width="190"/>
                 <TextBox materialDesign:HintAssist.Hint="Search Student" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" HorizontalAlignment="Left" Margin="10,10,10,10"/>
-                <DataGrid AutoGenerateColumns="False" Height="250" HorizontalAlignment="Center" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
+                <DataGrid AutoGenerateColumns="True" Height="250" HorizontalAlignment="Center" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
                     FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" IsReadOnly="True"
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20" 
-                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionChanged="DataGrid1_SelectionChanged">
+                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionChanged="DataGrid1_SelectionChanged" Loaded="DataGrid1_Loaded" SelectedCellsChanged="DataGrid1_SelectedCellsChanged">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="Student Number" Binding="{Binding A}" Width="130"/>
-                        <DataGridTextColumn Header="Student Name" Binding="{Binding B}" Width="230"/>
-                        <DataGridTextColumn Header="Program" Binding="{Binding C}" Width="130"/>
-                        <DataGridTextColumn Header="Has Voted" Binding="{Binding D}" Width="130"/>
+                      
                     </DataGrid.Columns>
                 </DataGrid>
                 <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
-                    <TextBox x:Name="txtStudentId" materialDesign:HintAssist.Hint="Student ID" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="100" HorizontalAlignment="Left" Margin="0,0,5,0" IsEnabled="False"/>
+                    <TextBox x:Name="txtStudentNumber" materialDesign:HintAssist.Hint="Student Number" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="120" HorizontalAlignment="Left" Margin="0,0,5,0" IsEnabled="False"/>
                     <Button Width="114" Height="35" Background="#FF3827B4" Content="Delete" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" VerticalAlignment="Bottom" Click="Click_Delete" Margin="5,0,30,0"/>
 
                 </StackPanel>

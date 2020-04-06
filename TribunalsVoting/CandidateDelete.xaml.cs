@@ -157,6 +157,8 @@ namespace TribunalsVoting
             //for searching
             try
             {
+                getter.conn.Close();
+
                 if (txtSearch.Text.Equals(""))
                 {
                     UpdateTable();
@@ -176,7 +178,6 @@ namespace TribunalsVoting
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.Message);
             }
         }
 
