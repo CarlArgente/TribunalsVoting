@@ -146,16 +146,16 @@ namespace TribunalsVoting
         {
             txtTitle.Text = "Ranking";
             Navigation.Visibility = Visibility.Visible;
-            dashText1.Text = "Winners";
-            dashText2.Text = "";
+            dashText1.Text = "Ranking";
+            dashText2.Text = "Winners";
             dashText3.Text = "";
             dashText4.Text = "";
-            dashDash1.Text = "";
+            dashDash1.Text = "|";
             dashDash2.Text = "";
             dashDash3.Text = "";
 
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new Winners());
+            GridPrincipal.Children.Add(new Ranking());
 
         }
         //For clicking History
@@ -195,11 +195,11 @@ namespace TribunalsVoting
                 GridPrincipal.Children.Clear();
                 GridPrincipal.Children.Add(new StudentList());
             }
-            if (dashText1.Text.Equals("Winners"))
+            if (dashText1.Text.Equals("Ranking"))
             {
 
                 GridPrincipal.Children.Clear();
-                GridPrincipal.Children.Add(new Winners());
+                GridPrincipal.Children.Add(new Ranking());
             }
             if (dashText1.Text.Equals("Admin Logs"))
             {
@@ -231,6 +231,12 @@ namespace TribunalsVoting
             {
                 GridPrincipal.Children.Clear();
                 GridPrincipal.Children.Add(new StudentLogs());
+            }
+            if (dashText2.Text.Equals("Winners"))
+            {
+
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new Winners());
             }
         }
         //For clicking NavigationBar3
