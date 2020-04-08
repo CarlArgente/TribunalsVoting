@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,34 @@ namespace TribunalsVoting
     /// </summary>
     public partial class AdminModule : Window
     {
+        String getTime;
+        void executeQuery(String query, String errorMessage)  
+        {
+            try
+            {
+
+                getter.conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, getter.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    //Display Message for inserting, updating, deleting
+                }
+                else
+                {
+                    MessageBox.Show(errorMessage);
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                getter.conn.Close();
+            }
+        }
+
         public AdminModule()
         {
             InitializeComponent();
@@ -65,7 +94,25 @@ namespace TribunalsVoting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("Quit");
+            //Logout
+            MessageBoxResult dialogResult = MessageBox.Show("Are you sure you want to logout?", "Logout", MessageBoxButton.YesNo);
+            if(dialogResult == MessageBoxResult.Yes)
+            {
+                //for inserting in historyLog
+                var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                getTime = time.ToString();
+                String sql = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','logged out ','" + getTime + "')";
+                executeQuery(sql, "Failed to insert in tbl_history");            
+                MessageBox.Show("See you again!, Admin", "Logout", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                this.Hide();
+                new Login().Show();
+                this.Close();
+            }
+            else
+            {
+                //do nothing
+            }
         }
         //Event for navigations
         private void nav1_mouseDown(object sender, MouseButtonEventArgs e)

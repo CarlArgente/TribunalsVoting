@@ -223,10 +223,8 @@ namespace TribunalsVoting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            //for adding candidate
+   
             InsertCandidate();
-
-
         }
     }
 }

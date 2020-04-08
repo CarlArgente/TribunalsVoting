@@ -107,21 +107,28 @@ namespace TribunalsVoting
 
         private void Click_Delete(object sender, RoutedEventArgs e)
         {
-            String sql = "DELETE FROM tbl_students WHERE student_number='"+txtStudentNumber.Text+"' ";
-            ExecuteDelete(sql);
-         
-            //for inserting in history
-            var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
-            getTime = time.ToString();
-            String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','Deleted Student with an number of " + txtStudentNumber.Text + " ', '" + getTime + "')";
-            ExecuteDelete(sql1);
+            if (txtStudentNumber.Text.Equals(""))
+            {
+                MessageBox.Show("Please input properly", "Failed", MessageBoxButton.OK, MessageBoxImage.Exclamation);
 
-            MessageBox.Show("Successfully Deleted Student", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-          
-            txtStudentNumber.Text = null;
-            id = null;
-            UpdateTable();
+            }
+            else
+            {
+                String sql = "DELETE FROM tbl_students WHERE student_number='" + txtStudentNumber.Text + "' ";
+                ExecuteDelete(sql);
 
+                //for inserting in history
+                var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                getTime = time.ToString();
+                String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','Deleted Student with an number of " + txtStudentNumber.Text + " ', '" + getTime + "')";
+                ExecuteDelete(sql1);
+
+                MessageBox.Show("Successfully Deleted Student", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+
+                txtStudentNumber.Text = null;
+                id = null;
+                UpdateTable();
+            }           
         }
 
         private void DataGrid1_Loaded(object sender, RoutedEventArgs e)

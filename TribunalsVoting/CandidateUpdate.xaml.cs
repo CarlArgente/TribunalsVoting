@@ -305,6 +305,7 @@ namespace TribunalsVoting
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             UpdateCandidate(id);
+
         }
 
         private void DataGrid1_Loaded(object sender, RoutedEventArgs e)

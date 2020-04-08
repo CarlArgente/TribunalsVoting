@@ -112,25 +112,25 @@
 
         <StackPanel Margin="758,98,0,0" Background="White">
             <TextBlock Text="President" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,20,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-            <TextBlock Text="Argente Carl Emerson L" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+            <TextBlock x:Name="txtPresident" Text="Argente Carl Emerson L" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <TextBlock Text="Vice President for Acadamic Affair" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-            <TextBlock Text="Andrei Justine Burat" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+            <TextBlock x:Name="txtVPAcademicAffair" Text="Andrei Justine Burat" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <TextBlock Text="Vice President for External Affair" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-            <TextBlock Text="Jerric Bersamin Bading" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+            <TextBlock x:Name="txtVPExternalAffair" Text="Jerric Bersamin Bading" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <TextBlock Text="Vice President for Internal Affair" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-            <TextBlock Text="Maverick Cejo Tatay" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+            <TextBlock x:Name="txtVPInternalAffair" Text="Maverick Cejo Tatay" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <TextBlock Text="Vice President for Operations" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-            <TextBlock Text="Christian Zyrus Diaz Manglapus" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+            <TextBlock x:Name="txtVPOperation" Text="Christian Zyrus Diaz Manglapus" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <TextBlock Text="Vice President for Finance" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-            <TextBlock Text="Kym Timbal Mukang tite" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+            <TextBlock x:Name="txtVPFinance" Text="Kym Timbal Mukang tite" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <TextBlock Text="ICT Representative" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
-            <TextBlock Text="Princess Rizza Mae Cawcaw" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
+            <TextBlock x:Name="txtRepresentative" Text="Princess Rizza Mae Cawcaw" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <StackPanel HorizontalAlignment="Center" Margin="10">
                 <Button Width="130" Height="35" Background="#FF3827B4" Content="Submit Vote" FontSize="12"  Foreground="White" BorderBrush="{x:Null}" Style="{DynamicResource RoundedButtonStyle}" Margin="0,0,0,0"/>

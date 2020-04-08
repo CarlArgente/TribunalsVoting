@@ -132,19 +132,27 @@ namespace TribunalsVoting
 
         private void Click_Delete(object sender, RoutedEventArgs e)
         {
-            String deleteQuery = "DELETE FROM tbl_candidates WHERE Candidate_id = '" + txtCandidateID.Text + "' ";
-            ExecuteDelete(deleteQuery);
+            if (txtCandidateID.Text.Equals(""))
+            {
+                MessageBox.Show("Please Input Properly", "Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else
+            {
+                String deleteQuery = "DELETE FROM tbl_candidates WHERE Candidate_id = '" + txtCandidateID.Text + "' ";
+                ExecuteDelete(deleteQuery);
 
-            //for inserting in history
-            var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
-            getTime = time.ToString();
-            String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "', CONCAT('Deleted Candidate with an ID of ', '" + id + "') , '" + getTime + "')";
-            RecordHistory(sql1);
+                //for inserting in history
+                var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                getTime = time.ToString();
+                String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "', CONCAT('Deleted Candidate with an ID of ', '" + id + "') , '" + getTime + "')";
+                RecordHistory(sql1);
 
-            UpdateTable();
-            SetSizeColumns();
-            getter.conn.Close();
-            txtCandidateID.Text = null;
+                UpdateTable();
+                SetSizeColumns();
+                getter.conn.Close();
+                txtCandidateID.Text = null;
+            }
+          
         }
 
         private void DataGrid1_Loaded(object sender, RoutedEventArgs e)

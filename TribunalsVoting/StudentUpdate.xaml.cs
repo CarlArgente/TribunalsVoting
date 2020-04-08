@@ -131,20 +131,27 @@ namespace TribunalsVoting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String sql = "UPDATE tbl_students SET student_number='"+txtStudentNumber.Text+"', student_name='"+txtStudentName.Text+"', program='"+cmbProgram.SelectedItem.ToString()+ "' WHERE student_number='" + txtStudentNumber.Text+"' ";
-            ExecuteUpdate(sql);       
-            //for inserting in history
-            var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
-            getTime = time.ToString();
-            String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','Updated Student with an number of " + txtStudentNumber.Text + " ', '" + getTime + "')";
-            ExecuteUpdate(sql1);
+            if (txtStudentNumber.Text.Equals("") || txtStudentName.Text.Equals("") || cmbProgram.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please input properly", "Failed", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+            }
+            else
+            {
+                String sql = "UPDATE tbl_students SET student_number='" + txtStudentNumber.Text + "', student_name='" + txtStudentName.Text + "', program='" + cmbProgram.SelectedItem.ToString() + "' WHERE student_number='" + txtStudentNumber.Text + "' ";
+                ExecuteUpdate(sql);
+                //for inserting in history
+                var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                getTime = time.ToString();
+                String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','Updated Student with an number of " + txtStudentNumber.Text + " ', '" + getTime + "')";
+                ExecuteUpdate(sql1);
 
-            MessageBox.Show("Successfully Updated Student", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-            txtStudentName.Text = null;
-            txtStudentNumber.Text = null;
-            getter.conn.Close();
-            UpdateTable();
-
+                MessageBox.Show("Successfully Updated Student", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                txtStudentName.Text = null;
+                txtStudentNumber.Text = null;
+                getter.conn.Close();
+                UpdateTable();
+            }
+           
         }
 
         private void DataGrid1_Loaded(object sender, RoutedEventArgs e)
