@@ -12,27 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-
+using MySql.Data.MySqlClient;
 namespace TribunalsVoting
 {
     /// <summary>
-    /// Interaction logic for PositionVPAcadamicAffair.xaml
+    /// Interaction logic for SamplePresident.xaml
     /// </summary>
-    public partial class PositionVPAcadamicAffair : UserControl
-    {
+    public partial class SamplePresident : UserControl
+    {     
         static List<String> list = new List<String>();
         static List<String> list2 = new List<String>();
         static List<String> names = new List<String>();
-
         void NextPage()
         {
             Ballot ballot = (Ballot)Window.GetWindow(this);
-            ballot.NavTextExternalAffair.FontFamily = new FontFamily("Segoe UI Semibold");
-            ballot.NavTextPresident.FontFamily = ballot.NavTextAcademicAffair.FontFamily = ballot.NavTextInternalAffair.FontFamily = ballot.NavTextOperation.FontFamily = ballot.NavTextFinance.FontFamily = ballot.NavTextProgram.FontFamily = new FontFamily("Segoe UI Semilight");
+            ballot.NavTextAcademicAffair.FontFamily = new FontFamily("Segoe UI Semibold");
+            ballot.NavTextPresident.FontFamily = ballot.NavTextExternalAffair.FontFamily = ballot.NavTextInternalAffair.FontFamily = ballot.NavTextOperation.FontFamily = ballot.NavTextFinance.FontFamily = ballot.NavTextProgram.FontFamily = new FontFamily("Segoe UI Semilight");
 
             ballot.GridPrincipal.Children.Clear();
-            ballot.GridPrincipal.Children.Add(new PositionVPExternalAffair());
+            ballot.GridPrincipal.Children.Add(new PositionVPAcadamicAffair());
         }
+
         void setter()
         {
             var bc = new BrushConverter();
@@ -42,7 +42,6 @@ namespace TribunalsVoting
                 Orientation = Orientation.Vertical,
                 HorizontalAlignment = HorizontalAlignment.Center
             };
-
             for (int x = 0; x < SetterForCandidates.listID.Count; x++)
             {
                 StackPanel sp = new StackPanel
@@ -78,6 +77,7 @@ namespace TribunalsVoting
                     VerticalAlignment = VerticalAlignment.Center
                 };
                 //Button
+
                 Button btnVote = new Button
                 {
                     Width = 115,
@@ -90,16 +90,17 @@ namespace TribunalsVoting
                     Margin = new System.Windows.Thickness(5),
                     BorderThickness = new System.Windows.Thickness(0)
                 };
+              
                 //TextBlocks
                 TextBlock textName = new TextBlock
                 {
                     Name = "txtName",
-                    Text = SetterForCandidates.listName[x] + "\t(" + SetterForCandidates.listNickname[x] + ")",
+                    Text = SetterForCandidates.listName[x] + "\t(" + SetterForCandidates.listNickname[x]+")",
                     HorizontalAlignment = HorizontalAlignment.Center,
                     Margin = new System.Windows.Thickness(5),
                     FontSize = 14,
                     FontWeight = FontWeights.Medium
-
+                    
                 };
                 TextBlock textPartylist = new TextBlock
                 {
@@ -110,17 +111,17 @@ namespace TribunalsVoting
                     FontWeight = FontWeights.Regular
                 };
                 TextBlock textAchievement = new TextBlock
-                {
+                {               
                     Text = "Achievement",
                     HorizontalAlignment = HorizontalAlignment.Left,
                     FontWeight = FontWeights.Light,
                     FontSize = 14,
                     Margin = new System.Windows.Thickness(5),
                     Foreground = (Brush)bc.ConvertFrom("#FF3827B4")
-                };
+                };               
                 TextBlock textListAchievement = new TextBlock
                 {
-                    //      Text = SetterForCandidates.titleAchievement[x].ToString(),
+              //      Text = SetterForCandidates.titleAchievement[x].ToString(),
                     HorizontalAlignment = HorizontalAlignment.Left,
                     FontWeight = FontWeights.Regular,
                     Margin = new System.Windows.Thickness(5),
@@ -137,7 +138,7 @@ namespace TribunalsVoting
                 };
                 TextBlock textLisPlatform = new TextBlock
                 {
-                    //    Text = "Gold award, Annual Report: Educational School",
+                //    Text = "Gold award, Annual Report: Educational School",
                     HorizontalAlignment = HorizontalAlignment.Left,
                     FontWeight = FontWeights.Regular,
                     Margin = new System.Windows.Thickness(5),
@@ -149,7 +150,7 @@ namespace TribunalsVoting
 
                 spChild.Children.Add(textName);
                 spChild.Children.Add(textPartylist);
-
+         
                 spChild.Children.Add(spSuperChild);
                 spChild.Children.Add(spSuperChild2);
 
@@ -158,21 +159,21 @@ namespace TribunalsVoting
                 spGrandChild.Children.Add(textListAchievement);
 
                 spSuperChild2.Children.Add(btnVote);
-
+               
                 spSuperChild.Children.Add(spGrandChild2);
-                spGrandChild2.Children.Add(textPlatform);
+                spGrandChild2.Children.Add(textPlatform);      
                 //for candidate achievement list
                 for (int y = 0; y < list.Count; y++)
-                {
+                {               
                     if (list[y].Equals("|"))
                     {
                         list.RemoveAt(y);
                         break;
                     }
                     textListAchievement.Text += list[y].ToString() + "\r";
-                    list[y] = "";
+                    list[y] = "";   
                 }
-                while (list.Remove("")) { }
+                while (list.Remove("")){}            
                 //for candidate platform list
                 for (int y = 0; y < list2.Count; y++)
                 {
@@ -184,45 +185,42 @@ namespace TribunalsVoting
                     textLisPlatform.Text += list2[y].ToString() + "\r";
                     list2[y] = "";
                 }
-                while (list2.Remove("")) { }
+                while (list2.Remove("")){}
                 //for buttons             
-                btnVote.Click += btn_Click;
-                btnVote.Tag = SetterForCandidates.listName[x].ToString();
-                spGrandChild2.Children.Add(textLisPlatform);
+                btnVote.Click += btn_Click;              
+                btnVote.Tag = SetterForCandidates.listName[x].ToString();           
 
+
+                spGrandChild2.Children.Add(textLisPlatform);                       
             }
-            SetterForCandidates.listID.Clear();
-            SetterForCandidates.listName.Clear();
-            SetterForCandidates.listPartylist.Clear();
-            SetterForCandidates.listNickname.Clear();
-            SetterForCandidates.listAchievement.Clear();
-            SetterForCandidates.listPlatform.Clear();
-
-            Principal.Children.Add(motherPanel);
-
+            Principal.Children.Add(motherPanel);            
         }
+
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             Button buttonThatWasClicked = (Button)sender;
             Ballot ballot = (Ballot)Window.GetWindow(this);
-            ballot.txtVPAcademicAffair.Text = buttonThatWasClicked.Tag.ToString();
+            ballot.txtPresident.Text = buttonThatWasClicked.Tag.ToString();
             NextPage();
         }
-        public PositionVPAcadamicAffair()
+
+        public SamplePresident()
         {
             InitializeComponent();
+            SetterForCandidates.getCandidateInfo("President");
 
-            SetterForCandidates.getCandidateInfo("Vice President for Academic Affair");
             for (int y = 0; y < SetterForCandidates.listAchievement.Count; y++)
             {
                 list.Add(SetterForCandidates.listAchievement[y].ToString());
             }
             for (int x = 0; x < SetterForCandidates.listPlatform.Count; x++)
             {
-
+              
                 list2.Add(SetterForCandidates.listPlatform[x].ToString());
             }
             setter();
-        }     
+               
+                
+        }
     }
 }

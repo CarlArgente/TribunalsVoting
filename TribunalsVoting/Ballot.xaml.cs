@@ -21,14 +21,16 @@ namespace TribunalsVoting
     {
         public Ballot()
         {
-            InitializeComponent();
+            InitializeComponent();         
+                            
             NavTextPresident.FontFamily = new FontFamily("Segoe UI Semibold");
             GridPrincipal.Children.Add(new PositionPresident());
+            
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new PositionPresident());
+            GridPrincipal.Children.Add(new PositionPresident());        
         }
 
         private void NavTextPresident_MouseDown(object sender, MouseButtonEventArgs e)
@@ -87,9 +89,6 @@ namespace TribunalsVoting
 
         private void NavTextProgram_MouseDown(object sender, MouseButtonEventArgs e)
         {
-            NavTextProgram.FontFamily = new FontFamily("Segoe UI Semibold");
-            NavTextPresident.FontFamily = NavTextAcademicAffair.FontFamily = NavTextExternalAffair.FontFamily = NavTextInternalAffair.FontFamily = NavTextOperation.FontFamily = NavTextFinance.FontFamily = new FontFamily("Segoe UI Semilight");
-
             //depende on program of student 
             /*
              * if(ICT Student)
@@ -97,6 +96,10 @@ namespace TribunalsVoting
              * if(Engineering Student)
              *      Go to Engineering Form
              * */
+            NavTextProgram.FontFamily = new FontFamily("Segoe UI Semibold");
+            NavTextPresident.FontFamily = NavTextAcademicAffair.FontFamily = NavTextExternalAffair.FontFamily = NavTextInternalAffair.FontFamily = NavTextOperation.FontFamily = NavTextFinance.FontFamily = new FontFamily("Segoe UI Semilight");
+
+          
 
             GridPrincipal.Children.Clear();
             GridPrincipal.Children.Add(new PositionICTRepresentative());

@@ -179,14 +179,14 @@ namespace TribunalsVoting
                //for update achievements
                 for (int x = 0; x < listAchievement.Items.Count; x++)
                 {
-                    String insertAchievement = "INSERT INTO tbl_candidate_achievement VALUES('', '" + listAchievement.Items[x].ToString() + "', (SELECT MAX(Candidate_id)FROM tbl_candidates)) ";
+                    String insertAchievement = "INSERT INTO tbl_candidate_achievement VALUES('', '" + listAchievement.Items[x].ToString() + "' , '" + id + "') ";
                     ExecuteQuery(insertAchievement);
                 }
                 //for inserting Platforms
                 ExecuteQuery(dropPlatform);
                 for (int y = 0; y < listPlatform.Items.Count; y++)
                 {
-                    String insertPlatform = "INSERT INTO tbl_candidate_platform VALUES('', '" + listPlatform.Items[y].ToString() + "', (SELECT MAX(Candidate_id)FROM tbl_candidates)) ";
+                    String insertPlatform = "INSERT INTO tbl_candidate_platform VALUES('', '" + listPlatform.Items[y].ToString() + "' , '" + id + "' )";
                     ExecuteQuery(insertPlatform);
                 }
 

@@ -116,6 +116,10 @@
     <Compile Include="Ranking.xaml.cs">
       <DependentUpon>Ranking.xaml</DependentUpon>
     </Compile>
+    <Compile Include="SamplePresident.xaml.cs">
+      <DependentUpon>SamplePresident.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SetterForCandidates.cs" />
     <Compile Include="StudentAdd.xaml.cs">
       <DependentUpon>StudentAdd.xaml</DependentUpon>
     </Compile>
@@ -270,6 +274,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="Ranking.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SamplePresident.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
