@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -51,18 +52,31 @@ namespace TribunalsVoting
             }
         }
 
+        //Class na may .Decrypt at .Encrypt
+        SimpleAES SAES;
+
         public Login()
         {
-            InitializeComponent();        
+            InitializeComponent();
+            SAES = new SimpleAES();
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+
+            if (!regexItem.IsMatch(txtUsername.Text) || !regexItem.IsMatch(txtPassword.Password))
+            {
+                MessageBox.Show("Symbols are not allowed.", "Login Error", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            else 
+            {
                 getter.conn.Open();
                 using (getter.conn)
                 {
-                    MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + txtPassword.Password + "'", getter.conn);
+                    MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_admin WHERE Username ='" + txtUsername.Text + "' AND Password='" + SAES.Encrypt(txtPassword.Password) + "'", getter.conn);
                     MySqlDataReader reader = command.ExecuteReader();
+
                     if (reader.Read())
                     {
                         MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
@@ -78,11 +92,10 @@ namespace TribunalsVoting
                         String sql = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','logged in ','" + getter.getTimeAndDate + "')";
                         executeQuery(sql, "Failed to insert in tbl_history");
                         reader.Close();
-                        
+
                         this.Hide();
                         new AdminModule().Show();
                         this.Close();
-                       
                     }
                     else if (txtUsername.Text == "superadmin" && txtPassword.Password == "superadmin")
                     {
@@ -98,7 +111,10 @@ namespace TribunalsVoting
                         reader.Close();
                     }
                 }
-                getter.conn.Close();                     
+                getter.conn.Close();
+
+            }
+                    
         }
 
         private void Window_MouseDown(object sender, MouseButtonEventArgs e)

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -25,8 +26,9 @@ namespace TribunalsVoting
         //Variables
         private int getId;
         private int incrementedId;
-
         private String getTime;
+
+        SimpleAES SAES;
         
         void ExecuteAddAdmin(String query, String errorMessage) 
         {
@@ -111,6 +113,7 @@ namespace TribunalsVoting
         public AdminAdd()
         {
             InitializeComponent();
+            SAES = new SimpleAES();
             //GettingMaxID();
             //DisplayMaxID();
         }
@@ -118,6 +121,8 @@ namespace TribunalsVoting
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            var regexItem = new Regex("^[a-zA-Z0-9 ]*$");
+
             if (txtUsername.Text.Equals("") || txtPassword.Password.Equals("") || txtConfirmPassword.Password.Equals(""))
             {
                 MessageBox.Show("Please input properply", "Add Failed", MessageBoxButton.OK, MessageBoxImage.Error);
@@ -126,10 +131,14 @@ namespace TribunalsVoting
             {
                 MessageBox.Show("Password don`t match", "Add Failed", MessageBoxButton.OK, MessageBoxImage.Error);
             }
+            else if (!regexItem.IsMatch(txtUsername.Text) || !regexItem.IsMatch(txtPassword.Password))
+            {
+                MessageBox.Show("Symbols are not allowed.", "Add Failed", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
             else
             {
                 //for inserting in database
-                String sql = "INSERT INTO tbl_admin(Username,Password) VALUES ('"+txtUsername.Text+"','"+txtPassword.Password+"')";
+                String sql = "INSERT INTO tbl_admin(Username,Password) VALUES ('"+ txtUsername.Text +"','"+ SAES.Encrypt(txtPassword.Password) +"')";
                 ExecuteAddAdmin(sql,"Failed to Add Admin");
                 //for recording in history
                 var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
