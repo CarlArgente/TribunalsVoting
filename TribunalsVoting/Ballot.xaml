@@ -129,7 +129,7 @@
             <TextBlock Text="Vice President for Finance" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
             <TextBlock x:Name="txtVPFinance" Text="" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
-            <TextBlock Text="ICT Representative" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
+            <TextBlock Text="Program Representative" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="#FF3827B4" Margin="10,10,0,5" Height="18" FontFamily="Segoe UI Semibold" FontWeight="Bold"/>
             <TextBlock x:Name="txtRepresentative" Text="" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Center" Foreground="Black" Margin="20,0,0,10" Height="18" FontFamily="Segoe UI Semilight" FontWeight="Bold"/>
 
             <StackPanel HorizontalAlignment="Center" Margin="10">

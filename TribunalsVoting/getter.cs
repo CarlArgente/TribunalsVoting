@@ -13,7 +13,8 @@ namespace TribunalsVoting
         public static MySqlConnection conn = new MySqlConnection("server=localhost;database=voting_system;uid=root;pwd=;");
         public static int getId;
         public static String getUsername;
-        public static String getTimeAndDate;       
+        public static String getTimeAndDate;
+        public static String getProgram;
     }
 
 }

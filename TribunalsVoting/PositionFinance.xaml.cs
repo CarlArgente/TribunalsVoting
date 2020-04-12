@@ -23,22 +23,43 @@ namespace TribunalsVoting
         static List<String> list = new List<String>();
         static List<String> list2 = new List<String>();
         static List<String> names = new List<String>();
+        String[] programs = { "BSIT", "BSCS", "BACOMM", "BMMA", "BSA", "BSMA", "BSCPE", "BSHM", "BSTM" };
+
         void NextPage()
         {
             Ballot ballot = (Ballot)Window.GetWindow(this);
             ballot.NavTextProgram.FontFamily = new FontFamily("Segoe UI Semibold");
             ballot.NavTextPresident.FontFamily = ballot.NavTextAcademicAffair.FontFamily = ballot.NavTextExternalAffair.FontFamily = ballot.NavTextInternalAffair.FontFamily = ballot.NavTextOperation.FontFamily = ballot.NavTextFinance.FontFamily = new FontFamily("Segoe UI Semilight");
 
-            //depende on program of student 
-            /*
-             * if(ICT Student)
-             *      Go to ICT Representative Form
-             * if(Engineering Student)
-             *      Go to Engineering Form
-             * */
-
-            ballot.GridPrincipal.Children.Clear();
-            ballot.GridPrincipal.Children.Add(new PositionICTRepresentative());
+            if (getter.getProgram.Equals(programs[0]) || getter.getProgram.Equals(programs[1]))
+            {
+                //for ICT representative
+                ballot.GridPrincipal.Children.Clear();
+                ballot.GridPrincipal.Children.Add(new PositionICTRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[2]) || getter.getProgram.Equals(programs[3]))
+            {
+                //for arts and science representative
+                ballot.GridPrincipal.Children.Clear();
+                ballot.GridPrincipal.Children.Add(new PositionArtsScienceRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[4]) || getter.getProgram.Equals(programs[5]))
+            {
+                //for ABM representative
+                ballot.GridPrincipal.Children.Clear();
+                ballot.GridPrincipal.Children.Add(new PositionABMRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[6]))
+            {
+                //for engineering representatative
+                ballot.GridPrincipal.Children.Clear();
+                ballot.GridPrincipal.Children.Add(new PositionEngineeringRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[7]) || getter.getProgram.Equals(programs[8]))
+            {
+                ballot.GridPrincipal.Children.Clear();
+                ballot.GridPrincipal.Children.Add(new PositionTourismHospitalityRepresentative());
+            }
         }
         void setter()
         {

@@ -25,7 +25,6 @@ namespace TribunalsVoting
         {
             InitializeComponent();
         }
-
         private void txtStudentNumber_KeyDown(object sender, KeyEventArgs e)
         {
             if(e.Key == Key.Enter)
@@ -44,6 +43,7 @@ namespace TribunalsVoting
                         while (sqlDataReader.Read())
                         {
                             hasVoted = sqlDataReader.GetByte("hasVoted");
+                            getter.getProgram = sqlDataReader.GetString("program");
                         }
 
                         if(hasVoted == 0)

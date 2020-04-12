@@ -30,7 +30,7 @@ namespace TribunalsVoting
             "BACOMM",
             "BMMA",
             "BSA",
-            "BCPE",
+            "BSCPE",
             "BSCS",
             "BSHM",
             "BSIT",

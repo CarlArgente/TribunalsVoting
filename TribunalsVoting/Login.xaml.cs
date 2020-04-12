@@ -99,7 +99,7 @@ namespace TribunalsVoting
                     }
                     else if (txtUsername.Text == "superadmin" && txtPassword.Password == "superadmin")
                     {
-                        MessageBox.Show("Greetings!, Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+                        MessageBox.Show("Greetings!, Super Admin", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
 
                         this.Hide();
                         new AdminModule().Show();

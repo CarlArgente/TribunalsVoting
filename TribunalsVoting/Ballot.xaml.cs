@@ -19,13 +19,23 @@ namespace TribunalsVoting
     /// </summary>
     public partial class Ballot : Window
     {
+        String[] programs = { "BSIT", "BSCS", "BACOMM", "BMMA", "BSA", "BSMA", "BSCPE", "BSHM", "BSTM" };
+
         public Ballot()
         {
-            InitializeComponent();         
-                            
+            InitializeComponent();
+
+            txtPresident.Text = "";
+            txtVPAcademicAffair.Text = "";
+            txtVPExternalAffair.Text = "";
+            txtVPInternalAffair.Text = "";
+            txtVPOperation.Text = "";
+            txtVPFinance.Text = "";
+            txtRepresentative.Text = "";
             NavTextPresident.FontFamily = new FontFamily("Segoe UI Semibold");
             GridPrincipal.Children.Add(new PositionPresident());
-            
+                    
+
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -88,21 +98,39 @@ namespace TribunalsVoting
         }
 
         private void NavTextProgram_MouseDown(object sender, MouseButtonEventArgs e)
-        {
-            //depende on program of student 
-            /*
-             * if(ICT Student)
-             *      Go to ICT Representative Form
-             * if(Engineering Student)
-             *      Go to Engineering Form
-             * */
+        {     
             NavTextProgram.FontFamily = new FontFamily("Segoe UI Semibold");
             NavTextPresident.FontFamily = NavTextAcademicAffair.FontFamily = NavTextExternalAffair.FontFamily = NavTextInternalAffair.FontFamily = NavTextOperation.FontFamily = NavTextFinance.FontFamily = new FontFamily("Segoe UI Semilight");
 
-          
-
-            GridPrincipal.Children.Clear();
-            GridPrincipal.Children.Add(new PositionICTRepresentative());
+            if (getter.getProgram.Equals(programs[0]) || getter.getProgram.Equals(programs[1]))
+            {
+                //for ICT representative
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new PositionICTRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[2]) || getter.getProgram.Equals(programs[3]))
+            {
+                //for arts and science representative
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new PositionArtsScienceRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[4]) || getter.getProgram.Equals(programs[5]))
+            {
+                //for ABM representative
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new PositionABMRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[6]))
+            {
+                //for engineering representatative
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new PositionEngineeringRepresentative());
+            }
+            else if (getter.getProgram.Equals(programs[7]) || getter.getProgram.Equals(programs[8]))
+            {
+                GridPrincipal.Children.Clear();
+                GridPrincipal.Children.Add(new PositionTourismHospitalityRepresentative());
+            }
 
         }
     }
