@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -19,8 +20,11 @@ namespace TribunalsVoting
     /// </summary>
     public partial class Ballot : Window
     {
-        String[] programs = { "BSIT", "BSCS", "BACOMM", "BMMA", "BSA", "BSMA", "BSCPE", "BSHM", "BSTM" };
+        List<String> listVotedNames = new List<String>();
+        List<int> listIDVoted = new List<int>();
 
+        String[] programs = { "BSIT", "BSCS", "BACOMM", "BMMA", "BSA", "BSMA", "BSCPE", "BSHM", "BSTM" };
+        String getTime;
         public Ballot()
         {
             InitializeComponent();
@@ -32,10 +36,98 @@ namespace TribunalsVoting
             txtVPOperation.Text = "";
             txtVPFinance.Text = "";
             txtRepresentative.Text = "";
-            NavTextPresident.FontFamily = new FontFamily("Segoe UI Semibold");
-            GridPrincipal.Children.Add(new PositionPresident());
-                    
+          
 
+            NavTextPresident.FontFamily = new FontFamily("Segoe UI Semibold");
+            GridPrincipal.Children.Add(new PositionPresident());           
+        }
+        void executeQuery(String query)
+        {
+            try
+            {
+                getter.conn.Close();
+                getter.conn.Open();
+                MySqlCommand cmd = new MySqlCommand(query, getter.conn);
+                if (cmd.ExecuteNonQuery() == 1)
+                {
+                    //nothing do display                 
+                }
+                else
+                {
+                    MessageBox.Show("burat");
+                }
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+            finally
+            {
+                getter.conn.Close();
+            }
+        }
+        //for getting ID of voted Candidate
+        void getId()
+        {
+            getter.conn.Open();
+            for(int x = 0; x < listVotedNames.Count; x++)
+            {
+                MySqlCommand cmd = new MySqlCommand("SELECT * FROM tbl_candidates WHERE Candidate_Name='" + listVotedNames[x] + "' ", getter.conn);
+                MySqlDataReader reader = cmd.ExecuteReader();
+                while (reader.Read())
+                {
+                    listIDVoted.Add(Int32.Parse(reader["Candidate_id"].ToString()));                
+                }
+                reader.Close();
+            }
+            getter.conn.Close();
+        }
+        void SubmitVoteUpdate()
+        {
+            try
+            {
+                if (txtPresident.Text.Equals("") || txtVPAcademicAffair.Text.Equals("") || txtVPExternalAffair.Text.Equals("") || txtVPInternalAffair.Text.Equals("") || txtVPOperation.Text.Equals("") || txtVPFinance.Text.Equals("") ||
+                    txtRepresentative.Text.Equals(""))
+                {
+                    MessageBox.Show("Please Vote for every position!", "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    listVotedNames.Add(txtPresident.Text);
+                    listVotedNames.Add(txtVPAcademicAffair.Text);
+                    listVotedNames.Add(txtVPExternalAffair.Text);
+                    listVotedNames.Add(txtVPInternalAffair.Text);
+                    listVotedNames.Add(txtVPOperation.Text);
+                    listVotedNames.Add(txtVPFinance.Text);
+                    listVotedNames.Add(txtRepresentative.Text);
+                    getId();
+                    for (int x = 0; x < listVotedNames.Count; x++)
+                    {
+                        getter.conn.Open();
+                        String sql = "UPDATE tbl_votes SET  Number_Of_Votes = Number_Of_Votes + 1 WHERE CANDIDATE_ID = '"+listIDVoted[x]+"' ";
+                        executeQuery(sql);                    
+                    }
+                    String sql1 = "UPDATE tbl_students SET hasVoted = 1  WHERE student_number='"+getter.getStudentNumber+"' ";
+                    executeQuery(sql1);
+                    //for inserting in historyLog
+                    var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                    String getComputerName = System.Environment.MachineName;
+                    getTime = time.ToString();
+                    getter.getTimeAndDate = getTime;
+                    String sql2 = "INSERT INTO tbl_vote_logs(Student_Number,Computer_Name,Date_Time) VALUES ('" + getter.getStudentNumber + "','" + getComputerName + "','" + getter.getTimeAndDate + "')";
+                    executeQuery(sql2);
+
+                    MessageBox.Show("Thank you for your cooperation!");
+                    this.Hide();
+                    new StudentNumberForm().Show();
+                    this.Close();
+                }
+            }
+            catch(Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
         }
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -136,7 +228,7 @@ namespace TribunalsVoting
 
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-
+            SubmitVoteUpdate();
         }
 
         private void Button_Click_2(object sender, RoutedEventArgs e)

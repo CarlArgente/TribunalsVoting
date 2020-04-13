@@ -44,6 +44,7 @@ namespace TribunalsVoting
                         {
                             hasVoted = sqlDataReader.GetByte("hasVoted");
                             getter.getProgram = sqlDataReader.GetString("program");
+                            getter.getStudentNumber = sqlDataReader.GetString("student_number");
                         }
 
                         if(hasVoted == 0)

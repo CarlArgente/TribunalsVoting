@@ -15,6 +15,7 @@ namespace TribunalsVoting
         public static String getUsername;
         public static String getTimeAndDate;
         public static String getProgram;
+        public static String getStudentNumber;
     }
 
 }
