@@ -10,6 +10,9 @@
         AllowsTransparency="True" Background="Transparent"
         WindowStyle="None" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
     <Grid Background="White">
+        <Button Width="30" Height="Auto" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,0,263" BorderBrush="{x:Null}" Click="Button_Click_2">
+            <materialDesign:PackIcon Kind="Power" Height="37" Width="30" Foreground="#FF3827B4" Background="White"/>
+        </Button>
         <StackPanel Margin="5" HorizontalAlignment="Center" VerticalAlignment="Center" Orientation="Horizontal">
 
             <Image Source="Assets/tribunals.png" VerticalAlignment="Center" HorizontalAlignment="Center" Stretch="Fill" Height="122" Width="122" Margin="0,0,10,0"/>

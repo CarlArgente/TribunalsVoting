@@ -78,7 +78,7 @@
             <Label Content="CSG ELECTION" FontSize="60" FontFamily="Segoe UI Semibold" Foreground="White" HorizontalAlignment="Center" VerticalAlignment="Center" Margin="51,245,562,271" Width="411" Height="84"/>
         </Border>
         <StackPanel HorizontalAlignment="Center" VerticalAlignment="Center" Height="600" >
-            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,0,0" BorderBrush="{x:Null}" >
+            <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,0,0" BorderBrush="{x:Null}" Click="Button_Click_1" >
                 <materialDesign:PackIcon Kind="Power" Height="26" Width="26" Foreground="#FF3827B4"/>
             </Button>
             <Image Source="Assets/tribunals.png" Stretch="None" RenderTransformOrigin="0.909,0.844" Margin="500,200,0,0" VerticalAlignment="Center" HorizontalAlignment="Center"/>

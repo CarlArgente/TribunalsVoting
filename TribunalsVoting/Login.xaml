@@ -126,7 +126,7 @@
                 </LinearGradientBrush>
             </Border.Background>
             <Grid Margin="0,0,0,514">
-                <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,0,0" BorderBrush="{x:Null}" >
+                <Button Width="30" Height="30" Padding="0" Background="{x:Null}" HorizontalAlignment="Right" Margin="0,0,0,0" BorderBrush="{x:Null}" Click="Button_Click_1" >
                     <materialDesign:PackIcon Kind="Power" Height="26" Width="26" Foreground="#FF3827B4"/>
                 </Button>
             </Grid>

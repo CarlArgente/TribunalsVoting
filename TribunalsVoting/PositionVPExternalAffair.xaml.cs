@@ -204,7 +204,21 @@ namespace TribunalsVoting
             Button buttonThatWasClicked = (Button)sender;
             Ballot ballot = (Ballot)Window.GetWindow(this);
             ballot.txtVPExternalAffair.Text = buttonThatWasClicked.Tag.ToString();
-            NextPage();
+            Greetings();
+        }
+        void Greetings()
+        {
+            Ballot ballot = (Ballot)Window.GetWindow(this);
+
+            if (ballot.txtPresident.Text.Equals("") || ballot.txtVPAcademicAffair.Text.Equals("") || ballot.txtVPExternalAffair.Text.Equals("") || ballot.txtVPInternalAffair.Text.Equals("") || ballot.txtVPFinance.Text.Equals("") ||
+                ballot.txtVPOperation.Text.Equals("") || ballot.txtRepresentative.Text.Equals(""))
+            {
+                NextPage();
+            }
+            else
+            {
+                MessageBox.Show("Alright! You`re done, click Submit vote if you`re sure!", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
         }
         public PositionVPExternalAffair()
         {

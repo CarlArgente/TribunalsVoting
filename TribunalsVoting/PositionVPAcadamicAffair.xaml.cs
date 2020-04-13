@@ -201,12 +201,26 @@ namespace TribunalsVoting
             Principal.Children.Add(motherPanel);
 
         }
+        void Greetings()
+        {
+            Ballot ballot = (Ballot)Window.GetWindow(this);
+
+            if (ballot.txtPresident.Text.Equals("") || ballot.txtVPAcademicAffair.Text.Equals("") || ballot.txtVPExternalAffair.Text.Equals("") || ballot.txtVPInternalAffair.Text.Equals("") || ballot.txtVPFinance.Text.Equals("") ||
+                ballot.txtVPOperation.Text.Equals("") || ballot.txtRepresentative.Text.Equals(""))
+            {
+                NextPage();
+            }
+            else
+            {
+                MessageBox.Show("Alright! You`re done, click Submit vote if you`re sure!", "Login Successful", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+        }
         private void btn_Click(object sender, RoutedEventArgs e)
         {
             Button buttonThatWasClicked = (Button)sender;
             Ballot ballot = (Ballot)Window.GetWindow(this);
             ballot.txtVPAcademicAffair.Text = buttonThatWasClicked.Tag.ToString();
-            NextPage();
+            Greetings();
         }
         public PositionVPAcadamicAffair()
         {
