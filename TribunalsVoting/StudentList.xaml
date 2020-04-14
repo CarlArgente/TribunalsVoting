@@ -14,13 +14,20 @@
                     <TextBlock Text="Student List" HorizontalAlignment="Left" VerticalAlignment="Center" FontSize="18" FontFamily="Segoe UI Semibold" Foreground="#FF3827B4" Width="197"/>
                     <TextBox x:Name="txtSearch" materialDesign:HintAssist.Hint="Search Student" Style="{StaticResource MaterialDesignFloatingHintTextBox}" Width="220" HorizontalAlignment="Left" Margin="10,10,10,10" KeyUp="TextBox_KeyUp"/>
                 </StackPanel>
-                <DataGrid AutoGenerateColumns="True" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
+                <DataGrid AutoGenerateColumns="True" Height="260" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
                     FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" IsReadOnly="True"
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="15,0,10,20"
                     CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionChanged="DataGrid1_SelectionChanged" Loaded="DataGrid1_Loaded">
                     <DataGrid.Columns>
-                   </DataGrid.Columns>
+                    </DataGrid.Columns>
                 </DataGrid>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <TextBlock Text="Total Student:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Margin="5,5,0,5"/>
+                    <TextBlock x:Name="txtTotalStudent" Text="2020" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Margin="5,5,20,5" FontWeight="Bold" Foreground="#FF3827B4"/>
+
+                    <TextBlock Text="Total Voted:" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Margin="5,5,0,5"/>
+                    <TextBlock x:Name="txtTotalVoted" Text="2020" HorizontalAlignment="Right" VerticalAlignment="Center" FontSize="14" Margin="5,5,10,5" FontWeight="Bold" Foreground="#FF3827B4"/>
+                </StackPanel>
             </StackPanel>
         </Grid>
     </materialDesign:TransitioningContent>

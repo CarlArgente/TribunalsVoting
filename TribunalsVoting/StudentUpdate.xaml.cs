@@ -120,6 +120,36 @@ namespace TribunalsVoting
 
             UpdateTable();
         }
+
+        private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            //for searching
+            try
+            {
+                if (txtSearch.Text.Equals(""))
+                {
+                    UpdateTable();
+                    SetSizeColumns();
+                }
+                else
+                {
+                    getter.conn.Close();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT student_number AS 'Student Number', student_name AS 'Student Name', program AS 'Program' FROM tbl_students WHERE student_number LIKE '" + txtSearch.Text + "%'  OR student_name LIKE '" + txtSearch.Text + "%' OR program LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    getter.conn.Open();
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                    getter.conn.Close();
+
+                    SetSizeColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+               
+            }
+        }
+
         //for adding items in combobox
         public void AddItemInComboBox()
         {

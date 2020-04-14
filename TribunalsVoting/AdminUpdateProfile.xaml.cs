@@ -22,7 +22,7 @@ namespace TribunalsVoting
     /// </summary>
     public partial class AdminUpdateProfile : UserControl
     {
-        String getUsername;
+        String getUsername,getFullName;
         int getAdminID;
         void GetProfile()
         {
@@ -37,9 +37,11 @@ namespace TribunalsVoting
                 //for getting value
                 getUsername = sqlDataReader["Username"].ToString();
                 getAdminID = Int32.Parse(sqlDataReader["Admin_ID"].ToString());
+                getFullName = sqlDataReader["Full_Name"].ToString();
                 //for setting value
                 txtId.Text = getAdminID.ToString();
                 txtUsername.Text = getUsername;
+                txtFullName.Text = getFullName;
             }
 
             getter.conn.Close();

@@ -28,7 +28,7 @@ namespace TribunalsVoting
         {
             try
             {
-                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Admin_ID, Username FROM tbl_admin", getter.conn);
+                MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Admin_ID, Full_Name, Username FROM tbl_admin", getter.conn);
                 getter.conn.Open();
                 DataSet ds = new DataSet();
                 adapter.Fill(ds);
@@ -60,7 +60,7 @@ namespace TribunalsVoting
                 }
                 else
                 {
-                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Admin_ID, Username FROM tbl_admin WHERE Admin_ID LIKE '" + txtSearch.Text + "%'  OR Username LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT Admin_ID, Full_Name, Username FROM tbl_admin WHERE Admin_ID LIKE '" + txtSearch.Text + "%'  OR Username LIKE '" + txtSearch.Text + "%' OR Full_Name LIKE '" + txtSearch.Text + "%'", getter.conn);
                     getter.conn.Open();
                     DataSet ds = new DataSet();
                     adapter.Fill(ds);

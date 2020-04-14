@@ -23,6 +23,7 @@ namespace TribunalsVoting
     /// </summary>
     public partial class StudentList : UserControl
     {
+        int totalStudent, totalVoted;
         //for updating table
         void UpdateTable()
         {
@@ -48,11 +49,44 @@ namespace TribunalsVoting
             dataGrid1.Columns[2].Width = 130;
             dataGrid1.Columns[2].Width = 130;
         }
-
+        void UpdateTotalStudent()
+        {
+            getter.conn.Close();
+            getter.conn.Open();
+            MySqlCommand cmd = getter.conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT COUNT(*) Total FROm tbl_students";
+            MySqlDataReader sqlDataReader = null;
+            sqlDataReader = cmd.ExecuteReader();
+            if (sqlDataReader.Read())
+            {
+                totalStudent = Int32.Parse(sqlDataReader["Total"].ToString());
+            }
+            txtTotalStudent.Text = "" + totalStudent;
+            getter.conn.Close();
+        }
+        void UpdateTotalVoted()
+        {
+            getter.conn.Close();
+            getter.conn.Open();
+            MySqlCommand cmd = getter.conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT COUNT(*) Total FROm tbl_students WHERE hasVoted = 1";
+            MySqlDataReader sqlDataReader = null;
+            sqlDataReader = cmd.ExecuteReader();
+            if (sqlDataReader.Read())
+            {
+                totalVoted = Int32.Parse(sqlDataReader["Total"].ToString());
+            }
+            txtTotalVoted.Text = "" + totalVoted;
+            getter.conn.Close();
+        }
         public StudentList()
         {
             InitializeComponent();
             UpdateTable();
+            UpdateTotalStudent();
+            UpdateTotalVoted();
         }
 
         private void DataGrid1_SelectionChanged(object sender, SelectionChangedEventArgs e)

@@ -24,6 +24,7 @@ namespace TribunalsVoting
     public partial class StudentDelete : UserControl
     {
         String id,getTime,getStudentNumber;
+        Byte hasVoted;
         //for updating table
         void UpdateTable()
         {
@@ -94,6 +95,23 @@ namespace TribunalsVoting
                 getter.conn.Close();
             }
         }
+
+        void CheckIfVoted(String id)
+        {
+            getter.conn.Close();
+            getter.conn.Open();
+
+            MySqlCommand cmd = getter.conn.CreateCommand();
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = "SELECT * FROM tbl_students WHERE student_number='" + id + "' ";
+            MySqlDataReader sqlDataReader = null;
+            sqlDataReader = cmd.ExecuteReader();
+            if (sqlDataReader.Read())
+            {
+                hasVoted = sqlDataReader.GetByte("hasVoted");
+            }        
+            getter.conn.Close();
+        }
         public StudentDelete()
         {
             InitializeComponent();
@@ -114,21 +132,56 @@ namespace TribunalsVoting
             }
             else
             {
-                String sql = "DELETE FROM tbl_students WHERE student_number='" + txtStudentNumber.Text + "' ";
-                ExecuteDelete(sql);
+                if (hasVoted == 0)
+                {
+                    String sql = "DELETE FROM tbl_students WHERE student_number='" + txtStudentNumber.Text + "' ";
+                    ExecuteDelete(sql);
 
-                //for inserting in history
-                var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
-                getTime = time.ToString();
-                String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','Deleted Student with an number of " + txtStudentNumber.Text + " ', '" + getTime + "')";
-                ExecuteDelete(sql1);
-
-                MessageBox.Show("Successfully Deleted Student", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
-
-                txtStudentNumber.Text = null;
-                id = null;
-                UpdateTable();
+                    //for inserting in history
+                    var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
+                    getTime = time.ToString();
+                    String sql1 = "INSERT INTO tbl_history(Admin_ID,Activities,Date_Time) VALUES ('" + getter.getId + "','Deleted Student with an number of " + txtStudentNumber.Text + " ', '" + getTime + "')";
+                    ExecuteDelete(sql1);
+                    MessageBox.Show("Successfully Deleted Student", "Success", MessageBoxButton.OK, MessageBoxImage.Information);
+                    txtStudentNumber.Text = null;
+                    id = null;
+                    UpdateTable();
+                }
+                else
+                {
+                    MessageBox.Show("You can`t delete this student because He/She already voted.", "Message", MessageBoxButton.OK, MessageBoxImage.Exclamation);
+                }
+            
             }           
+        }
+
+        private void TxtSearch_KeyUp(object sender, KeyEventArgs e)
+        {
+            //for searching
+            try
+            {
+                if (txtSearch.Text.Equals(""))
+                {
+                    UpdateTable();
+                    SetSizeColumns();
+                }
+                else
+                {
+                    getter.conn.Close();
+                    MySqlDataAdapter adapter = new MySqlDataAdapter("SELECT student_number AS 'Student Number', student_name AS 'Student Name', program AS 'Program', hasVoted AS 'Has Voted' FROM tbl_students WHERE student_number LIKE '" + txtSearch.Text + "%'  OR student_name LIKE '" + txtSearch.Text + "%' OR program LIKE '" + txtSearch.Text + "%' OR hasVoted LIKE '" + txtSearch.Text + "%' ", getter.conn);
+                    getter.conn.Open();
+                    DataSet ds = new DataSet();
+                    adapter.Fill(ds);
+                    dataGrid1.ItemsSource = ds.Tables[0].DefaultView;
+                    getter.conn.Close();
+
+                    SetSizeColumns();
+                }
+            }
+            catch (Exception ex)
+            {
+              
+            }
         }
 
         private void DataGrid1_Loaded(object sender, RoutedEventArgs e)
@@ -142,6 +195,8 @@ namespace TribunalsVoting
             DataRowView dataRow = dataGrid1.SelectedItem as DataRowView;
             id = dataRow.Row[0].ToString();
             DisplayData(id);
+            CheckIfVoted(id);
+         
             getter.conn.Close();
         }
     }

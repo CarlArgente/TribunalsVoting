@@ -22,10 +22,7 @@ namespace TribunalsVoting
     /// Interaction logic for AdminAdd.xaml
     /// </summary>
     public partial class AdminAdd : UserControl
-    {
-        //Variables
-        private int getId;
-        private int incrementedId;
+    { 
         private String getTime;
 
         SimpleAES SAES;
@@ -82,33 +79,12 @@ namespace TribunalsVoting
                 getter.conn.Close();
             }
         }
-
-        void GettingMaxID()
-        {
-            getter.conn.Open();
-            MySqlCommand cmd = getter.conn.CreateCommand();
-            cmd.CommandType = CommandType.Text;
-            cmd.CommandText = "SELECT MAX(Admin_ID) AS Max_Admin_ID FROM tbl_admin";
-            MySqlDataReader sqlDataReader = null;
-            sqlDataReader = cmd.ExecuteReader();
-            if (sqlDataReader.Read())
-            {
-                getId = Int32.Parse(sqlDataReader["Max_Admin_ID"].ToString());
-            }
-            getter.conn.Close();
-        }
-        void DisplayMaxID()
-        {
-            incrementedId = getId + 1;
-            txtAdminId.Text = incrementedId.ToString();
-        }
         public void Reset()
         {
-            GettingMaxID();
-            DisplayMaxID();
             txtUsername.Text = null;
             txtPassword.Password = null;
             txtConfirmPassword.Password = null;
+            txtFullName.Text = null;
         }
         public AdminAdd()
         {
@@ -138,7 +114,7 @@ namespace TribunalsVoting
             else
             {
                 //for inserting in database
-                String sql = "INSERT INTO tbl_admin(Username,Password) VALUES ('"+ txtUsername.Text +"','"+ SAES.Encrypt(txtPassword.Password) +"')";
+                String sql = "INSERT INTO tbl_admin(Full_Name,Username,Password) VALUES ('"+ txtFullName.Text + "','"+ txtUsername.Text +"','"+ SAES.Encrypt(txtPassword.Password) +"')";
                 ExecuteAddAdmin(sql,"Failed to Add Admin");
                 //for recording in history
                 var time = System.DateTime.Now.DayOfWeek.ToString() + " | " + DateTime.Now;
