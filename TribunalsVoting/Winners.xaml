@@ -18,15 +18,12 @@
 
                 </StackPanel>
                 <StackPanel Margin="20,0,20,0" Height="auto">
-                    <DataGrid AutoGenerateColumns="False" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
+                    <DataGrid AutoGenerateColumns="True" Height="306" HorizontalAlignment="Left" x:Name="dataGrid1" VerticalAlignment="Top" Background="{x:Null}" 
                     FontFamily="Segoe UI Light" FontSize="12" BorderBrush="{x:Null}" Foreground="Black" BorderThickness="1" IsReadOnly="True"
                     HorizontalGridLinesBrush="#FFD4D1D1" VerticalGridLinesBrush="#FFD4D1D1" Margin="0,0,0,20" Width="auto"
-                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionChanged="DataGrid1_SelectionChanged">
+                    CanUserAddRows="False" CanUserDeleteRows="False" CanUserReorderColumns="False" CanUserResizeColumns="False" CanUserResizeRows="False" CanUserSortColumns="False" SelectionChanged="DataGrid1_SelectionChanged" Loaded="DataGrid1_Loaded">
                         <DataGrid.Columns>
-                            <DataGridTextColumn Header="Candidate Name" Binding="{Binding A}" Width="auto"/>
-                            <DataGridTextColumn Header="Candidate Position" Binding="{Binding B}" Width="auto"/>
-                            <DataGridTextColumn Header="Candidate Partylist" Binding="{Binding C}" Width="auto"/>
-                            <DataGridTextColumn Header="Candidate Votes" Binding="{Binding D}" Width="auto"/>
+                       
                         </DataGrid.Columns>
                     </DataGrid>
                 </StackPanel>
